@@ -13,11 +13,11 @@ body {
 }
 
 a:link {
-  color:inherit;
+  color: inherit;
 }
 
 a:visited {
-  color:inherit;
+  color: inherit;
 }
 
 #app {
