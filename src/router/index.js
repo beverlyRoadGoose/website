@@ -2,6 +2,7 @@ import Vue from "vue";
 import VueRouter from "vue-router";
 import Home from "@/views/Home.vue";
 import Hello from "@/views/Hello.vue";
+import Me from "@/assets/me.jpg";
 import { preloadImage } from "@/util/preloadImage";
 
 Vue.use(VueRouter);
@@ -13,7 +14,7 @@ const routes = [
     component: Home,
     // eslint-disable-next-line no-unused-vars
     beforeEnter(to, from, next) {
-      preloadImage("../assets/me.jpg");
+      preloadImage(Me);
       next();
     }
   },
