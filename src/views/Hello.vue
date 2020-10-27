@@ -4,7 +4,14 @@
       <vue-headful title="Tobi Adeyinka" />
     </div>
     <div id="content">
-      <img src="@/assets/me.jpg" id="me" />
+      <transition name="fade">
+        <img
+          :src="meImg.src"
+          @load="onMeImageLoad"
+          v-show="meImg.loaded"
+          id="me"
+        />
+      </transition>
       <span id="hello">
         Hello. I'm <b>Tobi</b>, a Software Engineer currently based in Berlin.
         Outside of programming, I enjoy discovering good music: I recommend
@@ -38,8 +45,25 @@
 </template>
 
 <script>
+import Me from "@/assets/me.jpg";
+
 export default {
-  name: "Hello"
+  name: "Hello",
+
+  data() {
+    return {
+      meImg: {
+        src: Me,
+        loaded: false
+      }
+    };
+  },
+
+  methods: {
+    onMeImageLoad() {
+      this.meImg.loaded = true;
+    }
+  }
 };
 </script>
 
@@ -63,6 +87,14 @@ export default {
   width: 100%;
   margin-bottom: 20px;
   border-radius: 2px;
+}
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 1s;
+}
+.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+  opacity: 0;
 }
 
 #hello {
