@@ -12,8 +12,7 @@
           ><b>The National</b></a
         >
         every chance I get.<br /><br />If you'd like to get in touch, write me
-        at <a href="mailto:hey@heytobi.dev"><b>hey@heytobi.dev</b></a
-        >
+        at <a href="mailto:hey@heytobi.dev"><b>hey@heytobi.dev</b></a>
       </span>
       <div id="find-me">
         <a
@@ -51,19 +50,17 @@ export default {
 
 #content {
   width: 25%;
-  margin: auto;
+  margin: 50px auto;
 }
 
 @media only screen and (max-width: 1000px) {
   #content {
     width: 60%;
-    margin: auto;
   }
 }
 
 #me {
   width: 100%;
-  margin-top: 50px;
   margin-bottom: 20px;
   border-radius: 2px;
 }
