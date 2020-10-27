@@ -13,7 +13,7 @@
         >
         every chance I get.<br /><br />If you'd like to get in touch, write me
         at <a href="mailto:hey@heytobi.dev"><b>hey@heytobi.dev</b></a
-        >.
+        >
       </span>
       <div id="find-me">
         <a
