@@ -11,8 +11,6 @@ export default {
   name: "Home",
 
   mounted() {
-    // load the image  of me fully before moving to hello route, for better UX
-    new Image().src = "@/assets/me.jpg";
     this.$router.push("hello");
   }
 };
