@@ -10,6 +10,8 @@
           @load="onMeImageLoad"
           v-show="meImg.loaded"
           id="me"
+          alt="Picture of me"
+          title="Tobi Adeyinka"
         />
       </transition>
       <span id="hello">
@@ -28,7 +30,7 @@
           class="find-me"
           target="_blank"
         >
-          <img src="@/assets/github.png" />
+          <img src="@/assets/github.png" alt="Github" />
         </a>
 
         <a
@@ -37,7 +39,7 @@
           class="find-me"
           target="_blank"
         >
-          <img src="@/assets/linkedin.png" />
+          <img src="@/assets/linkedin.png" alt="LinkedIn" />
         </a>
       </div>
     </div>
@@ -62,6 +64,10 @@ export default {
   methods: {
     onMeImageLoad() {
       this.meImg.loaded = true;
+    },
+
+    track() {
+      this.$ga.page("/hello");
     }
   }
 };

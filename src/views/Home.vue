@@ -12,6 +12,12 @@ export default {
 
   mounted() {
     this.$router.push("hello");
+  },
+
+  methods: {
+    track() {
+      this.$ga.page("/");
+    }
   }
 };
 </script>
