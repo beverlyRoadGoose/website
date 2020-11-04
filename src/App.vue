@@ -7,19 +7,6 @@
 </template>
 
 <style lang="less">
-body {
-  margin: 0;
-  background-color: #fefefe;
-}
-
-a:link {
-  color: inherit;
-}
-
-a:visited {
-  color: inherit;
-}
-
 #app {
   padding: 0;
   margin: 0;

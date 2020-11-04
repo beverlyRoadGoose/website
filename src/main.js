@@ -10,6 +10,9 @@ Vue.component("vue-headful", VueHeadful);
 
 Vue.use(VuePageTransition);
 
+require("@/styles/base.less");
+require("@/styles/colors.less");
+
 new Vue({
   router,
   render: h => h(App)

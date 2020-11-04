@@ -67,7 +67,9 @@ export default {
 };
 </script>
 
-<style scoped>
+<style lang="less" scoped>
+@import "../styles/colors";
+
 #vue-headful {
   visibility: hidden;
 }
@@ -102,7 +104,7 @@ export default {
   width: 100%;
   text-align: left;
   margin-bottom: 20px;
-  color: #171717;
+  color: @accent;
 }
 
 #find-me {
