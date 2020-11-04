@@ -1,7 +1,7 @@
 <template>
   <div>
     <div id="vue-headful">
-      <vue-headful title="Tobi Adeyinka" />
+      <vue-headful title="Tobi Adeyinka | Hello" />
     </div>
     <div id="content">
       <transition name="fade">
