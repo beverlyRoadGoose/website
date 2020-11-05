@@ -17,8 +17,12 @@
       <span id="hello">
         Hello. I'm <b>Tobi</b>, a Software Engineer currently based in Berlin.
         Outside of programming, I enjoy discovering good music: I recommend
-        <a href="https://www.youtube.com/watch?v=2O6duDDkhis" target="_blank"
-          ><b>The National</b></a
+        <a
+          href="https://www.youtube.com/watch?v=2O6duDDkhis"
+          target="_blank"
+          @click="recordNtlClickEvent"
+        >
+          <b>The National</b></a
         >
         every chance I get.<br /><br />If you'd like to get in touch, write me
         at <a href="mailto:hey@heytobi.dev"><b>hey@heytobi.dev</b></a>
@@ -29,6 +33,7 @@
           title="GitHub"
           class="find-me"
           target="_blank"
+          @click="recordGithubClickEvent"
         >
           <img src="@/assets/github.png" alt="Github" />
         </a>
@@ -38,6 +43,7 @@
           title="LinkedIn"
           class="find-me"
           target="_blank"
+          @click="recordLinkedInClickEvent"
         >
           <img src="@/assets/linkedin.png" alt="LinkedIn" />
         </a>
@@ -69,6 +75,30 @@ export default {
     track() {
       this.$gtag.pageview({
         page_path: '/hello'
+      });
+    },
+
+    recordNtlClickEvent() {
+      this.$gtag.event('clickedNtl', {
+        event_category: 'externalLinkClick',
+        event_label: 'ntlClick',
+        value: 1
+      });
+    },
+
+    recordGithubClickEvent() {
+      this.$gtag.event('clickedGithub', {
+        event_category: 'externalLinkClick',
+        event_label: 'githubClick',
+        value: 1
+      });
+    },
+
+    recordLinkedInClickEvent() {
+      this.$gtag.event('clickedLinkedIn', {
+        event_category: 'externalLinkClick',
+        event_label: 'linkedInClick',
+        value: 1
       });
     }
   }
