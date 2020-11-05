@@ -47,10 +47,10 @@
 </template>
 
 <script>
-import Me from "@/assets/me.jpg";
+import Me from '@/assets/me.jpg';
 
 export default {
-  name: "Hello",
+  name: 'Hello',
 
   data() {
     return {
@@ -67,14 +67,16 @@ export default {
     },
 
     track() {
-      this.$ga.page("/hello");
+      this.$gtag.pageview({
+        page_path: '/hello'
+      });
     }
   }
 };
 </script>
 
 <style lang="less" scoped>
-@import "../styles/colors";
+@import '../styles/colors';
 
 #vue-headful {
   visibility: hidden;

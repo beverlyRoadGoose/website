@@ -8,15 +8,17 @@
 
 <script>
 export default {
-  name: "Home",
+  name: 'Home',
 
   mounted() {
-    this.$router.push("hello");
+    this.$router.push('hello');
   },
 
   methods: {
     track() {
-      this.$ga.page("/");
+      this.$gtag.pageview({
+        page_path: '/'
+      });
     }
   }
 };
