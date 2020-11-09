@@ -4,6 +4,7 @@
       <vue-headful title="Tobi Adeyinka | Hello" />
     </div>
     <div id="content">
+      <theme-switch />
       <transition name="fade">
         <img
           :src="meImg.src"
@@ -54,9 +55,12 @@
 
 <script>
 import Me from '@/assets/me.jpg';
+import ThemeSwitch from '@/components/ThemeSwitch';
 
 export default {
   name: 'Hello',
+
+  components: { ThemeSwitch },
 
   data() {
     return {
