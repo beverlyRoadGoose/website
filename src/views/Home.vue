@@ -7,8 +7,17 @@
 </template>
 
 <script>
+import CookieManager from '@/util/CookieManager';
+
 export default {
   name: 'Home',
+
+  created() {
+    let themeCookie = 'theme';
+    if (!CookieManager.cookieExists(themeCookie)) {
+      CookieManager.createCookie(themeCookie, 'light', 365);
+    }
+  },
 
   mounted() {
     this.$router.push('hello');

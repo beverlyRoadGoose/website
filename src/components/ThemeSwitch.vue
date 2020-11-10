@@ -19,13 +19,6 @@ export default {
 
   props: ['theme'],
 
-  created() {
-    this.applyTheme(this.getThemeObject(this.theme));
-    this.$root.$on(Events.THEME_CHANGED, (event, theme) =>
-      this.applyTheme(theme)
-    );
-  },
-
   data() {
     return {
       currentTheme: CookieManager.readCookie(themeCookie),
@@ -37,14 +30,14 @@ export default {
   methods: {
     toggleTheme: function() {
       this.currentTheme = this.getTargetTheme();
+      CookieManager.deleteCookie(themeCookie);
+      CookieManager.createCookie(themeCookie, this.currentTheme, 365);
+
       this.$root.$emit(
         Events.THEME_CHANGED,
         this.$event,
         this.getThemeObject(this.currentTheme)
       );
-
-      CookieManager.deleteCookie(themeCookie);
-      CookieManager.createCookie(themeCookie, this.currentTheme, 365);
     },
 
     getTargetTheme: function() {
@@ -55,10 +48,6 @@ export default {
 
     getThemeObject: function(themeName) {
       return themeName === Theme.light.name ? Theme.light : Theme.dark;
-    },
-
-    applyTheme: function(theme) {
-      console.log(theme);
     }
   },
 
