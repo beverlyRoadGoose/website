@@ -1,10 +1,10 @@
 <template>
-  <div>
+  <div id="screen" :style="screenStyle">
     <div id="vue-headful">
       <vue-headful title="Tobi Adeyinka | Hello" />
     </div>
     <div id="content">
-      <theme-switch />
+      <theme-switch :theme="initialTheme" />
       <transition name="fade">
         <img
           :src="meImg.src"
@@ -15,7 +15,7 @@
           title="Tobi Adeyinka"
         />
       </transition>
-      <span id="hello">
+      <span id="hello" :style="helloStyle">
         Hello. I'm <b>Tobi</b>, a Software Engineer currently based in Berlin.
         Outside of programming, I enjoy discovering good music: I recommend
         <a
@@ -55,10 +55,14 @@
 
 <script>
 import Me from '@/assets/me.jpg';
+import { Events } from '@/Events';
+import { Theme } from '@/styles/Theme';
 import ThemeSwitch from '@/components/ThemeSwitch';
 
 export default {
   name: 'Hello',
+
+  props: ['theme'],
 
   components: { ThemeSwitch },
 
@@ -67,8 +71,23 @@ export default {
       meImg: {
         src: Me,
         loaded: false
+      },
+
+      screenStyle: {
+        background: null
+      },
+
+      helloStyle: {
+        color: null
       }
     };
+  },
+
+  created() {
+    this.applyTheme(this.initialTheme);
+    this.$root.$on(Events.THEME_CHANGED, (event, theme) =>
+      this.applyTheme(theme)
+    );
   },
 
   methods: {
@@ -104,13 +123,30 @@ export default {
         event_label: 'linkedInClick',
         value: 1
       });
+    },
+
+    applyTheme: function(theme) {
+      this.screenStyle.background = theme.background;
+      this.helloStyle.color = theme.accent;
+    }
+  },
+
+  computed: {
+    initialTheme: function() {
+      return this.theme === Theme.light.name ? Theme.light : Theme.dark;
     }
   }
 };
 </script>
 
 <style lang="less" scoped>
+@import '../styles/base';
 @import '../styles/colors';
+
+#screen {
+  min-height: 100vh;
+  .transitions;
+}
 
 #vue-headful {
   visibility: hidden;
@@ -118,7 +154,8 @@ export default {
 
 #content {
   width: 25%;
-  margin: 50px auto;
+  margin: auto;
+  padding-top: 20px;
 }
 
 @media only screen and (max-width: 1000px) {
@@ -129,7 +166,7 @@ export default {
 
 #me {
   width: 100%;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   border-radius: 2px;
 }
 
@@ -146,7 +183,7 @@ export default {
   width: 100%;
   text-align: left;
   margin-bottom: 20px;
-  color: @accent;
+  .transitions;
 }
 
 #find-me {

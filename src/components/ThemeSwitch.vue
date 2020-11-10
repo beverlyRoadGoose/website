@@ -1,14 +1,15 @@
 <template>
   <div id="theme-switch">
     <label class="switch" :title="switchTitle">
-      <input type="checkbox" @click="toggleTheme" />
-      <span class="slider round"></span>
+      <input type="checkbox" @click="toggleTheme" :checked="checked" />
+      <span class="slider round" :style="sliderStyle"></span>
     </label>
   </div>
 </template>
 
 <script>
 import { Theme } from '@/styles/Theme';
+import { Events } from '@/Events';
 import CookieManager from '@/util/CookieManager';
 
 const themeCookie = 'theme';
@@ -16,15 +17,32 @@ const themeCookie = 'theme';
 export default {
   name: 'ThemeSwitch',
 
+  props: ['theme'],
+
+  created() {
+    this.applyTheme(this.getThemeObject(this.theme));
+    this.$root.$on(Events.THEME_CHANGED, (event, theme) =>
+      this.applyTheme(theme)
+    );
+  },
+
   data() {
     return {
-      currentTheme: CookieManager.readCookie(themeCookie)
+      currentTheme: CookieManager.readCookie(themeCookie),
+
+      sliderStyle: {}
     };
   },
 
   methods: {
     toggleTheme: function() {
       this.currentTheme = this.getTargetTheme();
+      this.$root.$emit(
+        Events.THEME_CHANGED,
+        this.$event,
+        this.getThemeObject(this.currentTheme)
+      );
+
       CookieManager.deleteCookie(themeCookie);
       CookieManager.createCookie(themeCookie, this.currentTheme, 365);
     },
@@ -33,6 +51,14 @@ export default {
       return this.currentTheme === Theme.light.name
         ? Theme.dark.name
         : Theme.light.name;
+    },
+
+    getThemeObject: function(themeName) {
+      return themeName === Theme.light.name ? Theme.light : Theme.dark;
+    },
+
+    applyTheme: function(theme) {
+      console.log(theme);
     }
   },
 
@@ -51,11 +77,10 @@ export default {
 <style lang="less" scoped>
 .switch {
   position: relative;
-  display: inline-block;
+  display: block;
   width: 30px;
   height: 18px;
   margin-bottom: 10px;
-  float: left;
 }
 
 .switch input {
@@ -83,19 +108,19 @@ export default {
   width: 10px;
   left: 4px;
   bottom: 4px;
-  background-color: white;
+  background-color: #fefefe;
   -webkit-transition: 0.4s;
   transition: 0.4s;
 }
 
 input:checked + .slider {
-  background-color: #0c0c0c;
+  background-color: #3c3c3c;
 }
 
 input:checked + .slider:before {
-  -webkit-transform: translateX(12px);
-  -ms-transform: translateX(12px);
-  transform: translateX(12px);
+  -webkit-transform: translateX(11px);
+  -ms-transform: translateX(11px);
+  transform: translateX(11px);
 }
 
 /* Rounded sliders */

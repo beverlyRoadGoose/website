@@ -4,6 +4,7 @@ import Home from '@/views/Home.vue';
 import Hello from '@/views/Hello.vue';
 import Me from '@/assets/me.jpg';
 import { preloadImage } from '@/util/preloadImage';
+import CookieManager from '@/util/CookieManager';
 
 Vue.use(VueRouter);
 
@@ -22,7 +23,10 @@ const routes = [
   {
     path: '/hello',
     name: 'hello',
-    component: Hello
+    component: Hello,
+    props: {
+      theme: CookieManager.readCookieOrDefault('theme', 'light')
+    }
   }
 ];
 

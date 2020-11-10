@@ -22,7 +22,7 @@ export default {
    * Reads the value of a cookie
    *
    * @param name Identifier of the cookie
-   * @returns The value stored in the cookie
+   * @returns The value stored in the cookie, null if it doesn't exist
    */
   readCookie: function(name) {
     let nameEQ = name + '=';
@@ -35,6 +35,17 @@ export default {
     }
 
     return null;
+  },
+
+  /**
+   * Reads the value of a cookie
+   *
+   * @param name Identifier of the cookie
+   * @returns The value stored in the cookie
+   */
+  readCookieOrDefault: function(cookieName, defaultValue) {
+    let cookieValue = this.readCookie(cookieName);
+    return cookieValue !== null ? cookieValue : defaultValue;
   },
 
   /**
