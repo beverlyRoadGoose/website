@@ -4,7 +4,7 @@
       <vue-headful title="Tobi Adeyinka | Hello" />
     </div>
     <div id="content">
-      <theme-switch :theme="initialTheme" />
+      <header-bar active="home" />
       <transition name="fade">
         <img
           :src="meImg.src"
@@ -96,18 +96,18 @@
 <script>
 import Me from '@/assets/me.jpg';
 import { Events } from '@/Events';
+import HeaderBar from '@/components/HeaderBar';
+import CookieManager from '@/util/CookieManager';
 import { Theme } from '@/styles/Theme';
-import ThemeSwitch from '@/components/ThemeSwitch';
 
 export default {
   name: 'Hello',
-
-  props: ['theme'],
-
-  components: { ThemeSwitch },
+  components: { HeaderBar },
 
   data() {
     return {
+      theme: CookieManager.readCookie('theme'),
+
       meImg: {
         src: Me,
         loaded: false
@@ -127,11 +127,14 @@ export default {
     };
   },
 
-  created() {
-    this.applyTheme(this.initialTheme);
-    this.$root.$on(Events.THEME_CHANGED, (event, theme) =>
-      this.applyTheme(theme)
+  mounted() {
+    this.applyTheme(
+      CookieManager.readCookie('theme') === 'light' ? Theme.light : Theme.dark
     );
+    this.$root.$on(Events.THEME_CHANGED, (event, theme) => {
+      this.theme = theme.name;
+      this.applyTheme(theme);
+    });
   },
 
   methods: {
@@ -178,15 +181,10 @@ export default {
     },
 
     applyTheme: function(theme) {
+      document.body.style.background = theme.background;
       this.screenStyle.background = theme.background;
       this.helloStyle.color = theme.accent;
       this.findMeStyle.fill = theme.accent;
-    }
-  },
-
-  computed: {
-    initialTheme: function() {
-      return this.theme === Theme.light.name ? Theme.light : Theme.dark;
     }
   }
 };
@@ -194,7 +192,6 @@ export default {
 
 <style lang="less" scoped>
 @import '../styles/base';
-@import '../styles/colors';
 
 #screen {
   min-height: 100vh;
@@ -206,9 +203,8 @@ export default {
 }
 
 #content {
-  width: 25%;
+  width: 30%;
   margin: auto;
-  padding-top: 20px;
 }
 
 @media only screen and (max-width: 1000px) {

@@ -17,12 +17,9 @@ const themeCookie = 'theme';
 export default {
   name: 'ThemeSwitch',
 
-  props: ['theme'],
-
   data() {
     return {
       currentTheme: CookieManager.readCookie(themeCookie),
-
       sliderStyle: {}
     };
   },
@@ -64,6 +61,10 @@ export default {
 </script>
 
 <style lang="less" scoped>
+#theme-switch {
+  width: 30px;
+}
+
 .switch {
   position: relative;
   display: block;

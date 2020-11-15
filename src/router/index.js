@@ -1,10 +1,12 @@
 import Vue from 'vue';
+import Blog from '@/views/Blog';
+import Me from '@/assets/me.jpg';
 import VueRouter from 'vue-router';
 import Home from '@/views/Home.vue';
 import Hello from '@/views/Hello.vue';
-import Me from '@/assets/me.jpg';
+import BlogPost from '@/views/BlogPost';
 import { preloadImage } from '@/util/preloadImage';
-import CookieManager from '@/util/CookieManager';
+import { createDefaultThemeCookie } from '@/util/createDefaultThemeCookie';
 
 Vue.use(VueRouter);
 
@@ -15,7 +17,7 @@ const routes = [
     component: Home,
     // eslint-disable-next-line no-unused-vars
     beforeEnter(to, from, next) {
-      preloadImage(Me);
+      createDefaultThemeCookie();
       next();
     }
   },
@@ -24,8 +26,31 @@ const routes = [
     path: '/hello',
     name: 'hello',
     component: Hello,
-    props: {
-      theme: CookieManager.readCookieOrDefault('theme', 'light')
+    beforeEnter(to, from, next) {
+      preloadImage(Me);
+      createDefaultThemeCookie();
+      next();
+    }
+  },
+
+  {
+    path: '/blog',
+    name: 'blog',
+    component: Blog,
+    beforeEnter(to, from, next) {
+      createDefaultThemeCookie();
+      next();
+    }
+  },
+
+  {
+    path: '/blog/:slug',
+    name: 'blog-post',
+    components: BlogPost,
+    beforeEnter(to, from, next) {
+      preloadImage(Me);
+      createDefaultThemeCookie();
+      next();
     }
   }
 ];
