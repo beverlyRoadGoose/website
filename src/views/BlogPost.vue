@@ -8,7 +8,7 @@
         <header-bar />
       </div>
     </div>
-    <div>
+    <div id="image-wrap">
       <img
         :alt="this.post.fields.title"
         :src="`${post.fields.image[0].fields.file.url}`"
@@ -49,7 +49,8 @@ export default {
         background: null
       },
       articleStyle: {
-        color: null
+        color: null,
+        background: null
       },
       post: null,
       author: null
@@ -103,6 +104,7 @@ export default {
       document.body.style.background = theme.background;
       this.screenStyle.background = theme.background;
       this.articleStyle.color = theme.accent;
+      this.articleStyle.background = theme.background;
     }
   }
 };
@@ -161,5 +163,19 @@ export default {
   margin-bottom: -10px;
   margin-right: 5px;
   border-radius: 50%;
+}
+
+@media only screen and (min-width: 1000px) {
+  #image-wrap {
+    width: 100%;
+    height: 500px;
+    overflow: hidden;
+  }
+
+  #image-wrap img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: cover;
+  }
 }
 </style>
