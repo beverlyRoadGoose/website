@@ -120,12 +120,12 @@ export default {
 }
 
 #header-wrap {
-  width: 40%;
+  width: 45%;
   margin: auto;
 }
 
 #article-wrap {
-  width: 40%;
+  width: 45%;
   margin: auto;
 }
 
