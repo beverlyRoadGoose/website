@@ -74,6 +74,16 @@ export default {
       images[i].style.width = '100%';
       images[i].style.borderRadius = '3px';
     }
+
+    let code = document.getElementById('article').getElementsByTagName('pre');
+    i = 0;
+    for (i; i < code.length; i++) {
+      code[i].style.width = '100%';
+      code[i].style.padding = '5px';
+      code[i].style.backgroundColor = '#e6e6e6';
+      code[i].style.overflowX = 'scroll';
+      code[i].style.borderRadius = '3px';
+    }
   },
 
   methods: {
@@ -188,5 +198,10 @@ export default {
   #image-wrap {
     height: 450px;
   }
+}
+
+.ql-syntax {
+  white-space: pre-wrap;
+  overflow-wrap: break-word;
 }
 </style>
