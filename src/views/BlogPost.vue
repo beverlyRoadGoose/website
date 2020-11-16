@@ -163,7 +163,7 @@ export default {
   border-radius: 50%;
 }
 
-#article img {
+#article p img {
   max-width: 100% !important;
 }
 
