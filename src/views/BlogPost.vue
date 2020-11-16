@@ -163,6 +163,10 @@ export default {
   border-radius: 50%;
 }
 
+#article img {
+  max-width: 100% !important;
+}
+
 #image-wrap {
   width: 100%;
   height: 600px;
