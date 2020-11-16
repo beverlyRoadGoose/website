@@ -46,7 +46,7 @@ const routes = [
   {
     path: '/blog/:slug',
     name: 'blog-post',
-    components: BlogPost,
+    component: BlogPost,
     beforeEnter(to, from, next) {
       preloadImage(Me);
       createDefaultThemeCookie();

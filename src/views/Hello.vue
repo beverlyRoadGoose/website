@@ -25,8 +25,11 @@
         >
           <b>The National</b></a
         >
-        every chance I get.<br /><br />If you'd like to get in touch, write me
-        at <a href="mailto:hey@heytobi.dev"><b>hey@heytobi.dev</b></a>
+        every chance I get. Occasionally,
+        <router-link to="blog"><b> I write.</b></router-link>
+        <br /><br />
+        If you'd like to get in touch, write me at
+        <a href="mailto:hey@heytobi.dev"><b>hey@heytobi.dev</b></a>
       </span>
       <div id="find-me">
         <a
@@ -106,8 +109,6 @@ export default {
 
   data() {
     return {
-      theme: CookieManager.readCookie('theme'),
-
       meImg: {
         src: Me,
         loaded: false
@@ -132,7 +133,6 @@ export default {
       CookieManager.readCookie('theme') === 'light' ? Theme.light : Theme.dark
     );
     this.$root.$on(Events.THEME_CHANGED, (event, theme) => {
-      this.theme = theme.name;
       this.applyTheme(theme);
     });
   },
@@ -203,13 +203,13 @@ export default {
 }
 
 #content {
-  width: 30%;
+  width: 40%;
   margin: auto;
 }
 
 @media only screen and (max-width: 1000px) {
   #content {
-    width: 60%;
+    width: 80%;
   }
 }
 
