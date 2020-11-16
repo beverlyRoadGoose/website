@@ -217,7 +217,7 @@ export default {
 #me {
   width: 100%;
   margin-bottom: 10px;
-  border-radius: 2px;
+  border-radius: 3px;
 }
 
 .fade-enter-active,

@@ -72,7 +72,7 @@ export default {
     let i = 0;
     for (i; i < images.length; i++) {
       images[i].style.width = '100%';
-      images[i].style.borderRadius = '2px';
+      images[i].style.borderRadius = '3px';
     }
   },
 
@@ -186,7 +186,7 @@ export default {
 
 @media only screen and (min-width: 1000px) {
   #image-wrap {
-    height: 400px;
+    height: 450px;
   }
 }
 </style>
