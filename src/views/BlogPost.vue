@@ -8,13 +8,7 @@
         <header-bar />
       </div>
     </div>
-    <div id="image-wrap">
-      <img
-        :alt="this.post.fields.title"
-        :src="`${post.fields.image[0].fields.file.url}`"
-        id="image"
-      />
-    </div>
+    <div id="image-wrap" :style="articleImage"></div>
     <div id="article-wrap" :style="articleStyle">
       <h2 id="title">{{ this.post.fields.title }}</h2>
       <div id="article" v-html="post.fields.content.html"></div>
@@ -51,6 +45,9 @@ export default {
       articleStyle: {
         color: null,
         background: null
+      },
+      articleImage: {
+        'background-image': null
       },
       post: null,
       author: null
@@ -91,6 +88,12 @@ export default {
       ComfortableApi.getDocuments(options)
         .then(result => {
           this.post = result.data[0];
+
+          let img = this.post.fields.image[0].fields.file.url;
+          this.articleImage = {
+            'background-image': 'url(' + img + ')'
+          };
+
           this.author = _.find(result.includes.author, {
             meta: { id: this.post.fields.author.meta.id }
           });
@@ -160,19 +163,20 @@ export default {
   border-radius: 50%;
 }
 
+#image-wrap {
+  width: 100%;
+  height: 600px;
+  overflow: hidden;
+  background-size: cover;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-position: center;
+  filter: brightness(60%);
+}
+
 @media only screen and (min-width: 1000px) {
   #image-wrap {
-    width: 100%;
     height: 600px;
-    overflow: hidden;
-  }
-
-  #image-wrap img {
-    display: block;
-    width: 100%;
-    max-width: 100%;
-    max-height: 100%;
-    object-fit: cover;
   }
 }
 </style>
