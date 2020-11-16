@@ -168,7 +168,7 @@ export default {
 @media only screen and (min-width: 1000px) {
   #image-wrap {
     width: 100%;
-    height: 500px;
+    height: 600px;
     overflow: hidden;
   }
 
