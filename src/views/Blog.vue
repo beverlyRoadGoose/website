@@ -105,6 +105,7 @@ export default {
 #content {
   width: 45%;
   margin: auto;
+  .transitions;
 }
 
 @media only screen and (max-width: 1000px) {
