@@ -138,6 +138,7 @@ export default {
 #article-wrap {
   width: 45%;
   margin: auto;
+  padding-top: 10px;
   .transitions;
 }
 
