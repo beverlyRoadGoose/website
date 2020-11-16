@@ -174,7 +174,7 @@ export default {
 
 #image-wrap {
   width: 100%;
-  height: 600px;
+  height: 300px;
   overflow: hidden;
   background-size: cover;
   background-attachment: fixed;
@@ -185,7 +185,7 @@ export default {
 
 @media only screen and (min-width: 1000px) {
   #image-wrap {
-    height: 600px;
+    height: 400px;
   }
 }
 </style>
