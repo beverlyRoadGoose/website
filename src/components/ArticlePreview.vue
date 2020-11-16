@@ -65,4 +65,8 @@ export default {
   margin-top: 0;
   padding-top: 0;
 }
+
+#article:hover #title {
+  text-decoration: underline;
+}
 </style>
