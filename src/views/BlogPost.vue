@@ -80,7 +80,8 @@ export default {
     for (i; i < code.length; i++) {
       code[i].style.width = '100%';
       code[i].style.padding = '5px';
-      code[i].style.backgroundColor = '#e6e6e6';
+      code[i].style.backgroundColor =
+        CookieManager.readCookie('theme') === 'light' ? '#e6e6e6' : '#3c3c3c';
       code[i].style.overflowX = 'scroll';
       code[i].style.borderRadius = '3px';
     }
