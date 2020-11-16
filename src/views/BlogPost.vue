@@ -72,6 +72,7 @@ export default {
     let i = 0;
     for (i; i < images.length; i++) {
       images[i].style.width = '100%';
+      images[i].style.borderRadius = '2px';
     }
   },
 
