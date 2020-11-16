@@ -1,7 +1,7 @@
 <template>
   <div id="screen" :style="screenStyle">
     <div id="vue-headful">
-      <vue-headful title="Tobi Adeyinka | Hello" />
+      <vue-headful title="Tobi Adeyinka" />
     </div>
     <div id="content">
       <header-bar active="home" />

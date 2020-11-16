@@ -118,12 +118,12 @@ export default {
 }
 
 #header-wrap {
-  width: 50%;
+  width: 40%;
   margin: auto;
 }
 
 #article-wrap {
-  width: 50%;
+  width: 40%;
   margin: auto;
 }
 

@@ -103,7 +103,7 @@ export default {
 }
 
 #content {
-  width: 50%;
+  width: 40%;
   margin: auto;
 }
 
