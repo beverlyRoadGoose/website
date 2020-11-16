@@ -67,6 +67,14 @@ export default {
     });
   },
 
+  updated() {
+    let images = document.getElementById('article').getElementsByTagName('img');
+    let i = 0;
+    for (i; i < images.length; i++) {
+      images[i].style.width = '100%';
+    }
+  },
+
   methods: {
     track() {
       this.$gtag.pageview({
@@ -161,10 +169,6 @@ export default {
   margin-bottom: -10px;
   margin-right: 5px;
   border-radius: 50%;
-}
-
-#article p img {
-  max-width: 100% !important;
 }
 
 #image-wrap {
