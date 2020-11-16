@@ -140,12 +140,6 @@ export default {
   }
 }
 
-#image {
-  display: block;
-  width: 100%;
-  height: auto;
-}
-
 #title {
   text-align: left;
 }
@@ -174,6 +168,8 @@ export default {
   }
 
   #image-wrap img {
+    display: block;
+    width: 100%;
     max-width: 100%;
     max-height: 100%;
     object-fit: cover;
