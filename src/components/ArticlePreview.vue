@@ -6,7 +6,7 @@
         :src="`${this.article.fields.image[0].fields.file.url}`"
         class="image"
       />
-      <h2 id="title" :style="titleStyle">{{ this.article.fields.title }}</h2>
+      <h3 id="title" :style="titleStyle">{{ this.article.fields.title }}</h3>
     </router-link>
   </div>
 </template>

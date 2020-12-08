@@ -72,7 +72,7 @@ export default {
 
 .nav-item {
   text-decoration: none;
-  font-size: 0.9em;
+  font-size: 0.8em;
   .transitions;
 }
 

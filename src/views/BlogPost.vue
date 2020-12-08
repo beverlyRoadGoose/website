@@ -10,8 +10,9 @@
     </div>
     <div id="image-wrap" :style="articleImage"></div>
     <div id="article-wrap" :style="articleStyle">
-      <h2 id="title">{{ this.post.fields.title }}</h2>
+      <h3 id="title">{{ this.post.fields.title }}</h3>
       <div id="article" v-html="post.fields.content.html"></div>
+      <!--
       <div class="author">
         <img
           :src="`${author.fields.avatar[0].fields.file.url}?w=30&h=30&fit=crop`"
@@ -19,6 +20,7 @@
         />
         by {{ author.fields.name }}
       </div>
+      -->
     </div>
   </div>
 </template>
@@ -170,6 +172,7 @@ export default {
 
 #article {
   text-align: left;
+  font-size: 0.8em;
 }
 
 .author {
