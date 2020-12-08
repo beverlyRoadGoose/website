@@ -27,11 +27,15 @@
           <b>The National</b></a
         >
         every chance I get. Occasionally,
-        <router-link to="blog"><b> I write.</b></router-link>
+        <router-link to="blog"><b> I write</b></router-link>.
         <br /><br />
-        If you'd like to get in touch, write me at
-        <a href="mailto:hey@heytobi.dev"><b>hey@heytobi.dev</b></a>
+        If you'd like to get in touch, feel free to
+        <a href="mailto:hey@heytobi.dev"><b>write me</b></a>.
       </span>
+      <div id="quote" :style="helloStyle">
+        Let everything happen to you. Beauty and terror. Just keep going. No
+        feeling is final.
+      </div>
       <div id="find-me">
         <a
           href="https://www.linkedin.com/in/oluwatobi-adeyinka/"
@@ -98,7 +102,7 @@
 </template>
 
 <script>
-import Me from '@/assets/me.jpg';
+import Me from '@/assets/me_beach.jpg';
 import { Events } from '@/Events';
 import HeaderBar from '@/components/HeaderBar';
 import CookieManager from '@/util/CookieManager';
@@ -236,7 +240,16 @@ export default {
   .transitions;
 }
 
+#quote {
+  text-align: left;
+  font-style: italic;
+  font-size: .8em;
+  margin-top: 20px;
+  .transitions;
+}
+
 #find-me {
+  margin-top: 10px;
   display: flex;
   align-content: flex-start;
 }
