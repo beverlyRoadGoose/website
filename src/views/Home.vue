@@ -275,6 +275,7 @@ export default {
   font-style: italic;
   font-size: 0.8em;
   margin-top: 20px;
+  margin-bottom: 20px;
   padding-top: 5px;
   border-top: 1px solid #e6e6e6;
   .transitions;
