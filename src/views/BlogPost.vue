@@ -10,7 +10,7 @@
     </div>
     <div id="image-wrap" :style="articleImage"></div>
     <div id="article-wrap" :style="articleStyle">
-      <h3 id="title">{{ this.post.fields.title }}</h3>
+      <h2 id="title">{{ this.post.fields.title }}</h2>
       <div class="author">
         <img
             :src="`${author.fields.avatar[0].fields.file.url}?w=300&h=300`"
