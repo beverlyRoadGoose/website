@@ -1,8 +1,13 @@
-<?xml version="1.0" encoding="UTF-8"?> 
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"> 
-<url>
-  <loc></loc>
-  <changefreq>daily</changefreq>
-  <lastmod>2020-11-05</lastmod>
-</url>
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://heytobi.dev</loc>
+    <changefreq>daily</changefreq>
+    <lastmod>2020-12-10</lastmod>
+  </url>
+  <url>
+    <loc>https://heytobi.dev/blog</loc>
+    <changefreq>daily</changefreq>
+    <lastmod>2020-12-10</lastmod>
+  </url>
 </urlset>
