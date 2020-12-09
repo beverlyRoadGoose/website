@@ -86,7 +86,7 @@ export default {
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: #e6e6e6;
+  background-color: #e3e6ee;
   -webkit-transition: 0.4s;
   transition: 0.4s;
 }
@@ -104,7 +104,7 @@ export default {
 }
 
 input:checked + .slider {
-  background-color: #3c3c3c;
+  background-color: #323c52;
 }
 
 input:checked + .slider:before {
