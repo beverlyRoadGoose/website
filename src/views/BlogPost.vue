@@ -1,8 +1,5 @@
 <template>
   <div id="blog-post" v-if="post && author" :style="screenStyle">
-    <div id="vue-headful">
-      <vue-headful :title="`Tobi Adeyinka | ${this.post.fields.title}`" />
-    </div>
     <div id="content">
       <div id="header-wrap">
         <header-bar />
@@ -13,8 +10,8 @@
       <h2 id="title">{{ this.post.fields.title }}</h2>
       <div class="author">
         <img
-            :src="`${author.fields.avatar[0].fields.file.url}?w=300&h=300`"
-            alt="author.fields.name"
+          :src="`${author.fields.avatar[0].fields.file.url}?w=300&h=300`"
+          alt="author.fields.name"
         />
         <b>{{ author.fields.name }}</b><br /><span id="post-date">{{ this.postDate }}</span>
       </div>
@@ -34,6 +31,7 @@ import { Events } from '@/Events';
 import highlight from 'highlight.js';
 import 'highlight.js/styles/an-old-hope.css'; //https://highlightjs.org/static/demo/
 import dayjs from 'dayjs';
+import Me from '@/assets/me_beach.jpg';
 
 export default {
   name: 'BlogPost',
@@ -42,6 +40,8 @@ export default {
 
   data() {
     return {
+      post: null,
+      author: null,
       screenStyle: {
         background: null
       },
@@ -51,9 +51,43 @@ export default {
       },
       articleImage: {
         'background-image': null
+      }
+    };
+  },
+
+  metaInfo() {
+    return {
+      title:
+        this.post === null
+          ? 'Tobi Adeyinka | Blog'
+          : `Tobi Adeyinka | ${this.post.fields.title}`,
+      htmlAttrs: {
+        lang: 'en'
       },
-      post: null,
-      author: null
+      meta: [
+        {
+          property: 'og:title',
+          content:
+            this.post === null ? 'Tobi Adeyinka | Blog' : this.post.fields.title
+        },
+        { property: 'og:site_name', content: 'Tobi Adeyinka | Blog' },
+        { property: 'og:type', content: 'article' },
+        {
+          property: 'og:url',
+          content:
+            this.post === null
+              ? 'https://heytobi.dev/blog'
+              : `https://heytobi.dev/blog/${this.post.fields.slug}`
+        },
+        {
+          property: 'og:image',
+          content:
+            this.post === null
+              ? `https://heytobi.dev${Me}`
+              : this.post.fields.image[0].fields.file.url
+        },
+        { name: 'robots', content: 'index,follow' }
+      ]
     };
   },
 

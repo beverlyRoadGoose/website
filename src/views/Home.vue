@@ -1,8 +1,5 @@
 <template>
   <div id="screen" :style="screenStyle">
-    <div id="vue-headful">
-      <vue-headful title="Tobi Adeyinka" />
-    </div>
     <div id="content">
       <header-bar active="home" />
       <transition name="fade">
@@ -117,7 +114,8 @@
       </div>
 
       <div id="quote" :style="helloStyle">
-        Let everything happen to you. Beauty and Terror. Just keep going. No feeling is final.
+        Let everything happen to you. Beauty and Terror. Just keep going. No
+        feeling is final.
       </div>
     </div>
   </div>
@@ -133,6 +131,27 @@ import { Theme } from '@/styles/Theme';
 export default {
   name: 'Home',
   components: { HeaderBar },
+  metaInfo: {
+    title: 'Tobi Adeyinka',
+    htmlAttrs: {
+      lang: 'en'
+    },
+    meta: [
+      { charset: 'utf-8' },
+      { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+      {
+        name: 'description',
+        content:
+          "Hello &#128075;&#127998;. I'm Tobi, a Software Engineer currently based in Berlin."
+      },
+      { property: 'og:title', content: 'Tobi Adeyinka' },
+      { property: 'og:site_name', content: 'Tobi Adeyinka' },
+      { property: 'og:type', content: 'website' },
+      { name: 'robots', content: 'index,follow' },
+      { property: 'og:url', content: 'https://heytobi.dev' },
+      { property: 'og:image', content: `https://heytobi.dev${Me}` }
+    ]
+  },
 
   data() {
     return {

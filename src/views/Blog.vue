@@ -1,8 +1,5 @@
 <template>
   <div id="blog" :style="screenStyle">
-    <div id="vue-headful">
-      <vue-headful title="Tobi Adeyinka | Blog" />
-    </div>
     <div id="content">
       <header-bar active="home" />
       <div v-for="post in posts" :key="post.meta.id">
@@ -26,10 +23,32 @@ import CookieManager from '@/util/CookieManager';
 import { ComfortableApi } from '@/util/Comfortable';
 import { Theme } from '@/styles/Theme';
 import ArticlePreview from '@/components/ArticlePreview';
+import Me from '@/assets/me_beach.jpg';
 
 export default {
   name: 'Blog',
   components: { HeaderBar, ArticlePreview },
+  metaInfo: {
+    title: 'Tobi Adeyinka | Blog',
+    htmlAttrs: {
+      lang: 'en'
+    },
+    meta: [
+      { charset: 'utf-8' },
+      { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+      {
+        name: 'description',
+        content:
+          "Hello &#128075;&#127998;. I'm Tobi, a Software Engineer currently based in Berlin."
+      },
+      { property: 'og:title', content: 'Tobi Adeyinka | Blog' },
+      { property: 'og:site_name', content: 'Tobi Adeyinka | Blog' },
+      { property: 'og:type', content: 'website' },
+      { name: 'robots', content: 'index,follow' },
+      { property: 'og:url', content: 'https://heytobi.dev/blog' },
+      { property: 'og:image', content: `https://heytobi.dev${Me}` }
+    ]
+  },
 
   created() {
     this.getPosts();
