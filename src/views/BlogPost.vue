@@ -11,16 +11,14 @@
     <div id="image-wrap" :style="articleImage"></div>
     <div id="article-wrap" :style="articleStyle">
       <h3 id="title">{{ this.post.fields.title }}</h3>
-      <div id="article" v-html="post.fields.content.html"></div>
-      <!--
       <div class="author">
         <img
-          :src="`${author.fields.avatar[0].fields.file.url}?w=30&h=30&fit=crop`"
-          alt="author.fields.name"
+            :src="`${author.fields.avatar[0].fields.file.url}?w=300&h=300`"
+            alt="author.fields.name"
         />
-        by {{ author.fields.name }}
+        <b>{{ author.fields.name }}</b><br /><span id="post-date">{{ this.postDate }}</span>
       </div>
-      -->
+      <div id="article" v-html="post.fields.content.html"></div>
     </div>
   </div>
 </template>
@@ -35,6 +33,7 @@ import { Theme } from '@/styles/Theme';
 import { Events } from '@/Events';
 import highlight from 'highlight.js';
 import 'highlight.js/styles/an-old-hope.css'; //https://highlightjs.org/static/demo/
+import dayjs from 'dayjs'
 
 export default {
   name: 'BlogPost',
@@ -142,6 +141,12 @@ export default {
         highlight.highlightBlock(codeBlock);
       }
     }
+  },
+
+  computed: {
+    postDate: function() {
+      return dayjs(this.post.fields.date).format('MMMM D, YYYY');
+    }
   }
 };
 </script>
@@ -189,6 +194,8 @@ export default {
 .author {
   font-size: 0.8em;
   text-align: left;
+  margin-bottom: 20px;
+  margin-top: -10px;
 }
 
 .author img {
@@ -196,6 +203,9 @@ export default {
   margin-bottom: -10px;
   margin-right: 5px;
   border-radius: 50%;
+  float: left;
+  width: 35px;
+  height: 35px;
 }
 
 #image-wrap {
@@ -218,5 +228,9 @@ export default {
 .ql-syntax {
   white-space: pre-wrap;
   overflow-wrap: break-word;
+}
+
+#post-date {
+  font-size: 0.8em;
 }
 </style>
