@@ -42,6 +42,11 @@ export default {
           "Hello &#128075;&#127998;. I'm Tobi, a Software Engineer currently based in Berlin."
       },
       { property: 'og:title', content: 'Tobi Adeyinka | Blog' },
+      {
+        property: 'og:description',
+        content:
+          "Hello &#128075;&#127998;. I'm Tobi, a Software Engineer currently based in Berlin."
+      },
       { property: 'og:site_name', content: 'Tobi Adeyinka | Blog' },
       { property: 'og:type', content: 'website' },
       { name: 'robots', content: 'index,follow' },

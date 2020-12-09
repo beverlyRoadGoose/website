@@ -70,6 +70,11 @@ export default {
           content:
             this.post === null ? 'Tobi Adeyinka | Blog' : this.post.fields.title
         },
+        {
+          property: 'og:description',
+          content:
+            "Hello &#128075;&#127998;. I'm Tobi, a Software Engineer currently based in Berlin."
+        },
         { property: 'og:site_name', content: 'Tobi Adeyinka | Blog' },
         { property: 'og:type', content: 'article' },
         {
