@@ -83,7 +83,7 @@ export default {
       code[i].style.width = '100%';
       code[i].style.padding = '5px';
       code[i].style.backgroundColor =
-        CookieManager.readCookie('theme') === 'light' ? '#e6e6e6' : '#3c3c3c';
+        CookieManager.readCookie('theme') === 'light' ? '#e6e6e6' : '#1b212d';
       code[i].style.overflowX = 'scroll';
       code[i].style.borderRadius = '3px';
     }
