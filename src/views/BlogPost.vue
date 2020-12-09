@@ -33,7 +33,7 @@ import { Theme } from '@/styles/Theme';
 import { Events } from '@/Events';
 import highlight from 'highlight.js';
 import 'highlight.js/styles/an-old-hope.css'; //https://highlightjs.org/static/demo/
-import dayjs from 'dayjs'
+import dayjs from 'dayjs';
 
 export default {
   name: 'BlogPost',
