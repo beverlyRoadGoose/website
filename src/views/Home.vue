@@ -267,14 +267,14 @@ export default {
   width: 100%;
   text-align: left;
   margin-bottom: 20px;
-  font-size: 0.8em;
+  font-size: 0.9em;
   .transitions;
 }
 
 #quote {
   text-align: left;
   font-style: italic;
-  font-size: 0.7em;
+  font-size: 0.8em;
   margin-top: 20px;
   margin-bottom: 20px;
   padding-top: 5px;

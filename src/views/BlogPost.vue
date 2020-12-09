@@ -33,6 +33,8 @@ import _ from 'lodash';
 import CookieManager from '@/util/CookieManager';
 import { Theme } from '@/styles/Theme';
 import { Events } from '@/Events';
+import highlight from 'highlight.js';
+import 'highlight.js/styles/an-old-hope.css'; //https://highlightjs.org/static/demo/
 
 export default {
   name: 'BlogPost',
@@ -76,17 +78,7 @@ export default {
       images[i].style.width = '100%';
       images[i].style.borderRadius = '3px';
     }
-
-    let code = document.getElementById('article').getElementsByTagName('pre');
-    i = 0;
-    for (i; i < code.length; i++) {
-      code[i].style.width = '100%';
-      code[i].style.padding = '5px';
-      code[i].style.backgroundColor =
-        CookieManager.readCookie('theme') === 'light' ? '#e6e6e6' : '#1b212d';
-      code[i].style.overflowX = 'scroll';
-      code[i].style.borderRadius = '3px';
-    }
+    this.styleCodeBlocks();
   },
 
   methods: {
@@ -130,6 +122,25 @@ export default {
       this.screenStyle.background = theme.background;
       this.articleStyle.color = theme.accent;
       this.articleStyle.background = theme.background;
+    },
+
+    /*
+     * For styling code blocks, comfortable.io doesn't wrap snippets in code blocks so we have to get
+     * all code all pre blocks and manually wrap them in code blocks ourselves, we do these so we can
+     * make use of syntax highlighters. Also apply further styling to the pre blocks.
+     */
+    styleCodeBlocks: function() {
+      let code = document.getElementById('article').getElementsByTagName('pre');
+      let i = 0;
+      for (i; i < code.length; i++) {
+        code[i].innerHTML = '<code>' + code[i].innerHTML + '</code>';
+        code[i].style.width = '100%';
+        code[i].style.overflowX = 'scroll';
+        code[i].style.borderRadius = '3px';
+
+        let codeBlock = code[i].getElementsByTagName('code')[0];
+        highlight.highlightBlock(codeBlock);
+      }
     }
   }
 };
@@ -172,7 +183,7 @@ export default {
 
 #article {
   text-align: left;
-  font-size: 0.8em;
+  font-size: 0.9em;
 }
 
 .author {
