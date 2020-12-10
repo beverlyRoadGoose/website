@@ -38,14 +38,12 @@ export default {
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       {
         name: 'description',
-        content:
-          "Hello &#128075;&#127998;. I'm Tobi, a Software Engineer currently based in Berlin."
+        content: 'Tobi Adeyinka, a Software Engineer currently based in Berlin.'
       },
       { property: 'og:title', content: 'Tobi Adeyinka | Blog' },
       {
         property: 'og:description',
-        content:
-          "Hello &#128075;&#127998;. I'm Tobi, a Software Engineer currently based in Berlin."
+        content: 'Tobi Adeyinka, a Software Engineer currently based in Berlin.'
       },
       { property: 'og:site_name', content: 'Tobi Adeyinka | Blog' },
       { property: 'og:type', content: 'website' },

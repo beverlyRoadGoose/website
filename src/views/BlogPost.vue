@@ -61,10 +61,11 @@ export default {
         this.post === null
           ? 'Tobi Adeyinka | Blog'
           : `Tobi Adeyinka | ${this.post.fields.title}`,
-      htmlAttrs: {
-        lang: 'en'
-      },
       meta: [
+        {
+          name: 'description',
+          content: 'Tobi Adeyinka, a Software Engineer currently based in Berlin.'
+        },
         {
           property: 'og:title',
           content:
@@ -72,8 +73,7 @@ export default {
         },
         {
           property: 'og:description',
-          content:
-            "Hello &#128075;&#127998;. I'm Tobi, a Software Engineer currently based in Berlin."
+          content: 'Tobi Adeyinka, a Software Engineer currently based in Berlin.'
         },
         { property: 'og:site_name', content: 'Tobi Adeyinka | Blog' },
         { property: 'og:type', content: 'article' },
