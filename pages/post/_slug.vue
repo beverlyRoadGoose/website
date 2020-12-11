@@ -36,7 +36,6 @@ import Me from '@/assets/img/me_beach.jpg';
 export default {
   name: 'post',
   transition: {},
-  props: ['article'],
   components: { HeaderBar },
 
   data() {
