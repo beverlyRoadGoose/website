@@ -18,7 +18,6 @@ export default {
 
 <style lang="less" scoped>
 #header-bar {
-  display: inline-block;
   width: 100%;
   height: 50px;
   padding-top: 15px;
@@ -29,7 +28,6 @@ export default {
 }
 
 #page-nav {
-  display: inline-block;
   float: right;
   width: 90%;
 }

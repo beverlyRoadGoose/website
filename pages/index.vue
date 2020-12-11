@@ -24,7 +24,7 @@
           <b>The National</b></a
         >
         every chance I get. Occasionally,
-        <router-link to="blog"><b> I write</b></router-link
+        <NuxtLink to="/posts"><b> I write</b></NuxtLink
         >. <br /><br />
         If you'd like to get in touch, feel free to
         <a href="mailto:hey@heytobi.dev"><b>write me</b></a
@@ -122,26 +122,28 @@
 </template>
 
 <script>
-import Me from '@/assets/me_beach.jpg';
-import { Events } from '@/Events';
+import Me from 'assets/img/me_beach.jpg';
+import { Events } from '@/util/Events';
 import HeaderBar from '@/components/HeaderBar';
 import CookieManager from '@/util/CookieManager';
-import { Theme } from '@/styles/Theme';
+import { Theme } from '@/util/Theme';
 
 export default {
-  name: 'Home',
+  name: 'Index',
+  transition: {},
   components: { HeaderBar },
-  metaInfo: {
+  head: {
     title: 'Tobi Adeyinka',
     meta: [
+      { charset: 'utf-8' },
       {
         name: 'description',
-        content: 'Tobi Adeyinka, a Software Engineer currently based in Berlin.'
+        content: "Hello. I'm Tobi, a Software Engineer currently based in Berlin."
       },
       { property: 'og:title', content: 'Tobi Adeyinka' },
       {
         property: 'og:description',
-        content: 'Tobi Adeyinka, a Software Engineer currently based in Berlin.'
+        content: "Hello. I'm Tobi, a Software Engineer currently based in Berlin."
       },
       { property: 'og:site_name', content: 'Tobi Adeyinka' },
       { property: 'og:type', content: 'website' },
@@ -173,9 +175,16 @@ export default {
   },
 
   mounted() {
+    let themeCookie = 'theme';
+
+    if (!CookieManager.cookieExists(themeCookie)) {
+      CookieManager.createCookie(themeCookie, 'light', 365)
+    }
+
     this.applyTheme(
-      CookieManager.readCookie('theme') === 'light' ? Theme.light : Theme.dark
+      CookieManager.readCookie(themeCookie) === 'light' ? Theme.light : Theme.dark
     );
+
     this.$root.$on(Events.THEME_CHANGED, (event, theme) => {
       this.applyTheme(theme);
     });
@@ -243,11 +252,12 @@ export default {
 </script>
 
 <style lang="less" scoped>
-@import '../styles/base';
-
 #screen {
   min-height: 100vh;
-  .transitions;
+  transition: .5s;
+  -moz-transition: .5s;
+  -webkit-transition: .5s;
+  -o-transition: .5s;
 }
 
 #vue-headful {
@@ -285,7 +295,10 @@ export default {
   text-align: left;
   margin-bottom: 20px;
   font-size: 0.9em;
-  .transitions;
+  transition: .5s;
+  -moz-transition: .5s;
+  -webkit-transition: .5s;
+  -o-transition: .5s;
 }
 
 #quote {
@@ -296,7 +309,10 @@ export default {
   margin-bottom: 20px;
   padding-top: 5px;
   border-top: 1px solid #e6e6e6;
-  .transitions;
+  transition: .5s;
+  -moz-transition: .5s;
+  -webkit-transition: .5s;
+  -o-transition: .5s;
 }
 
 #find-me {
@@ -310,7 +326,10 @@ export default {
   width: 16px;
   height: 16px;
   margin-right: 5px;
-  .transitions;
+  transition: .5s;
+  -moz-transition: .5s;
+  -webkit-transition: .5s;
+  -o-transition: .5s;
 }
 
 .find-me img {

@@ -18,18 +18,19 @@
 
 <script>
 import HeaderBar from '@/components/HeaderBar';
-import { Events } from '@/Events';
+import { Events } from '@/util/Events';
 import CookieManager from '@/util/CookieManager';
 import { ComfortableApi } from '@/util/Comfortable';
-import { Theme } from '@/styles/Theme';
+import { Theme } from '@/util/Theme';
 import ArticlePreview from '@/components/ArticlePreview';
-import Me from '@/assets/me_beach.jpg';
+import Me from '@/assets/img/me_beach.jpg';
 
 export default {
-  name: 'Blog',
+  name: 'posts',
+  transition: {},
   components: { HeaderBar, ArticlePreview },
-  metaInfo: {
-    title: 'Tobi Adeyinka | Blog',
+  head: {
+    title: 'Tobi Adeyinka | Posts',
     htmlAttrs: {
       lang: 'en'
     },
@@ -38,17 +39,17 @@ export default {
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       {
         name: 'description',
-        content: 'Tobi Adeyinka, a Software Engineer currently based in Berlin.'
+        content: "Hello. I'm Tobi, a Software Engineer currently based in Berlin."
       },
-      { property: 'og:title', content: 'Tobi Adeyinka | Blog' },
+      { property: 'og:title', content: 'Tobi Adeyinka | Posts' },
       {
         property: 'og:description',
-        content: 'Tobi Adeyinka, a Software Engineer currently based in Berlin.'
+        content: "Hello. I'm Tobi, a Software Engineer currently based in Berlin."
       },
-      { property: 'og:site_name', content: 'Tobi Adeyinka | Blog' },
+      { property: 'og:site_name', content: 'Tobi Adeyinka | Posts' },
       { property: 'og:type', content: 'website' },
       { name: 'robots', content: 'index,follow' },
-      { property: 'og:url', content: 'https://heytobi.dev/blog' },
+      { property: 'og:url', content: 'https://heytobi.dev/posts' },
       { property: 'og:image', content: `https://heytobi.dev${Me}` }
     ]
   },
@@ -58,9 +59,16 @@ export default {
   },
 
   mounted() {
+    let themeCookie = 'theme';
+
+    if (!CookieManager.cookieExists(themeCookie)) {
+      CookieManager.createCookie(themeCookie, 'light', 365)
+    }
+
     this.applyTheme(
-      CookieManager.readCookie('theme') === 'light' ? Theme.light : Theme.dark
+        CookieManager.readCookie(themeCookie) === 'light' ? Theme.light : Theme.dark
     );
+
     this.$root.$on(Events.THEME_CHANGED, (event, theme) => {
       this.applyTheme(theme);
     });
@@ -80,7 +88,7 @@ export default {
   methods: {
     track() {
       this.$gtag.pageview({
-        page_path: '/blog'
+        page_path: '/posts'
       });
     },
 
@@ -117,17 +125,22 @@ export default {
 </script>
 
 <style lang="less" scoped>
-@import '../styles/base';
 
 #blog {
   min-height: 100vh;
-  .transitions;
+  transition: .5s;
+  -moz-transition: .5s;
+  -webkit-transition: .5s;
+  -o-transition: .5s;
 }
 
 #content {
   width: 30%;
   margin: auto;
-  .transitions;
+  transition: .5s;
+  -moz-transition: .5s;
+  -webkit-transition: .5s;
+  -o-transition: .5s;
 }
 
 @media only screen and (max-width: 1000px) {
@@ -144,7 +157,10 @@ export default {
   outline: none;
   background-color: #e6e6e6;
   border: 1px solid #cdcdcd;
-  .transitions;
+  transition: .5s;
+  -moz-transition: .5s;
+  -webkit-transition: .5s;
+  -o-transition: .5s;
 }
 
 #load-more-btn:hover {

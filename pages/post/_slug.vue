@@ -26,15 +26,16 @@ import Comfortable from 'comfortable-javascript';
 import { ComfortableApi } from '@/util/Comfortable';
 import _ from 'lodash';
 import CookieManager from '@/util/CookieManager';
-import { Theme } from '@/styles/Theme';
-import { Events } from '@/Events';
+import { Theme } from '@/util/Theme';
+import { Events } from '@/util/Events';
 import highlight from 'highlight.js';
 import 'highlight.js/styles/an-old-hope.css'; //https://highlightjs.org/static/demo/
 import dayjs from 'dayjs';
-import Me from '@/assets/me_beach.jpg';
+import Me from '@/assets/img/me_beach.jpg';
 
 export default {
-  name: 'BlogPost',
+  name: 'post',
+  transition: {},
   props: ['article'],
   components: { HeaderBar },
 
@@ -55,39 +56,38 @@ export default {
     };
   },
 
-  metaInfo() {
+  head() {
     return {
       title:
         this.post === null
-          ? 'Tobi Adeyinka | Blog'
+          ? 'Tobi Adeyinka | Posts'
           : `Tobi Adeyinka | ${this.post.fields.title}`,
       meta: [
+        { charset: 'utf-8' },
         {
           name: 'description',
-          content: 'Tobi Adeyinka, a Software Engineer currently based in Berlin.'
+          content: "Hello. I'm Tobi, a Software Engineer currently based in Berlin."
         },
         {
           property: 'og:title',
-          content:
-            this.post === null ? 'Tobi Adeyinka | Blog' : this.post.fields.title
+          content: this.post === null ? 'Tobi Adeyinka | Posts' : this.post.fields.title
         },
         {
           property: 'og:description',
-          content: 'Tobi Adeyinka, a Software Engineer currently based in Berlin.'
+          content: "Hello. I'm Tobi, a Software Engineer currently based in Berlin."
         },
-        { property: 'og:site_name', content: 'Tobi Adeyinka | Blog' },
+        { property: 'og:site_name', content: 'Tobi Adeyinka | Posts' },
         { property: 'og:type', content: 'article' },
         {
           property: 'og:url',
           content:
             this.post === null
-              ? 'https://heytobi.dev/blog'
-              : `https://heytobi.dev/blog/${this.post.fields.slug}`
+              ? 'https://heytobi.dev/posts'
+              : `https://heytobi.dev/post/${this.post.fields.slug}`
         },
         {
           property: 'og:image',
-          content:
-            this.post === null
+          content: this.post === null
               ? `https://heytobi.dev${Me}`
               : this.post.fields.image[0].fields.file.url
         },
@@ -101,9 +101,16 @@ export default {
   },
 
   mounted() {
+    let themeCookie = 'theme';
+
+    if (!CookieManager.cookieExists(themeCookie)) {
+      CookieManager.createCookie(themeCookie, 'light', 365)
+    }
+
     this.applyTheme(
-      CookieManager.readCookie('theme') === 'light' ? Theme.light : Theme.dark
+        CookieManager.readCookie(themeCookie) === 'light' ? Theme.light : Theme.dark
     );
+
     this.$root.$on(Events.THEME_CHANGED, (event, theme) => {
       this.applyTheme(theme);
     });
@@ -122,7 +129,7 @@ export default {
   methods: {
     track() {
       this.$gtag.pageview({
-        page_path: '/blog/' + this.post.fields.title
+        page_path: '/post/' + this.post.fields.title
       });
     },
 
@@ -191,12 +198,14 @@ export default {
 </script>
 
 <style lang="less" scoped>
-@import '../styles/base';
 
 #blog-post {
   min-height: 100vh;
   padding-bottom: 50px;
-  .transitions;
+  transition: .5s;
+  -moz-transition: .5s;
+  -webkit-transition: .5s;
+  -o-transition: .5s;
 }
 
 #header-wrap {
@@ -208,7 +217,10 @@ export default {
   width: 45%;
   margin: auto;
   padding-top: 10px;
-  .transitions;
+  transition: .5s;
+  -moz-transition: .5s;
+  -webkit-transition: .5s;
+  -o-transition: .5s;
 }
 
 @media only screen and (max-width: 1000px) {

@@ -1,20 +1,20 @@
 <template>
   <div id="article">
-    <router-link :to="`/blog/${this.article.fields.slug}`">
+    <NuxtLink :to="`/post/${this.article.fields.slug}`">
       <img
         :alt="this.article.fields.title"
         :src="`${this.article.fields.image[0].fields.file.url}`"
         class="image"
       />
       <h2 id="title" :style="titleStyle">{{ this.article.fields.title }}</h2>
-    </router-link>
+    </NuxtLink>
   </div>
 </template>
 
 <script>
 import CookieManager from '@/util/CookieManager';
-import { Theme } from '@/styles/Theme';
-import { Events } from '@/Events';
+import { Theme } from '@/util/Theme';
+import { Events } from '@/util/Events';
 
 export default {
   name: 'ArticlePreview',

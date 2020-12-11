@@ -8,8 +8,8 @@
 </template>
 
 <script>
-import { Theme } from '@/styles/Theme';
-import { Events } from '@/Events';
+import { Theme } from '@/util/Theme';
+import { Events } from '@/util/Events';
 import CookieManager from '@/util/CookieManager';
 
 const themeCookie = 'theme';
@@ -19,9 +19,16 @@ export default {
 
   data() {
     return {
-      currentTheme: CookieManager.readCookie(themeCookie),
+      currentTheme: null,
       sliderStyle: {}
     };
+  },
+
+  mounted() {
+    if (!CookieManager.cookieExists(themeCookie)) {
+      CookieManager.createCookie(themeCookie, 'light', 365)
+    }
+    this.currentTheme = CookieManager.readCookie(themeCookie);
   },
 
   methods: {
