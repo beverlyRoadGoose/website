@@ -27,8 +27,7 @@
         <NuxtLink to="/posts"><b> I write</b></NuxtLink
         >. <br /><br />
         If you'd like to get in touch, feel free to
-        <a href="mailto:hey@heytobi.dev"><b>write me</b></a
-        >.
+        <a href="mailto:hey@heytobi.dev"><b>write me</b></a>.
       </span>
 
       <div id="find-me">

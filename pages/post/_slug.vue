@@ -1,21 +1,21 @@
 <template>
-  <div id="blog-post" v-if="post && author" :style="screenStyle">
+  <div id="blog-post" v-if="this.post && this.author" :style="this.screenStyle">
     <div id="content">
       <div id="header-wrap">
         <header-bar />
       </div>
     </div>
-    <div id="image-wrap" :style="articleImage"></div>
-    <div id="article-wrap" :style="articleStyle">
+    <div id="image-wrap" :style="this.articleImage"></div>
+    <div id="article-wrap" :style="this.articleStyle">
       <h2 id="title">{{ this.post.fields.title }}</h2>
       <div class="author">
         <img
-          :src="`${author.fields.avatar[0].fields.file.url}?w=300&h=300`"
+          :src="`${this.author.fields.avatar[0].fields.file.url}?w=300&h=300`"
           alt="author.fields.name"
         />
         <b>{{ author.fields.name }}</b><br /><span id="post-date">{{ this.postDate }}</span>
       </div>
-      <div id="article" v-html="post.fields.content.html"></div>
+      <div id="article" v-html="this.post.fields.content.html"></div>
     </div>
   </div>
 </template>
@@ -31,77 +31,78 @@ import { Events } from '@/util/Events';
 import highlight from 'highlight.js';
 import 'highlight.js/styles/an-old-hope.css'; //https://highlightjs.org/static/demo/
 import dayjs from 'dayjs';
-import Me from '@/assets/img/me_beach.jpg';
 
 export default {
   name: 'post',
   transition: {},
+  props: ['article'],
   components: { HeaderBar },
 
-  data() {
-    return {
-      post: null,
-      author: null,
-      screenStyle: {
-        background: null
-      },
-      articleStyle: {
-        color: null,
-        background: null
-      },
-      articleImage: {
-        'background-image': null
-      }
+  async asyncData({ route }) {
+    let data = null;
+
+    const options = {
+      embedAssets: true,
+      includes: 1,
+      filters: new Comfortable.Filter().addAnd(
+          'slug',
+          'equal',
+          route.params.slug
+      )
     };
+
+    await ComfortableApi.getDocuments(options)
+      .then(result => {
+        let post = result.data[0];
+        let image = post.fields.image[0].fields.file.url;
+        let author = _.find(result.includes.author, {
+          meta: { id: post.fields.author.meta.id }
+        });
+
+        data =  {
+          post: post,
+          author: author,
+          image: image,
+          screenStyle: {
+            background: null
+          },
+          articleStyle: {
+            color: null,
+            background: null
+          },
+          articleImage: {},
+        };
+      })
+      .catch(err => { throw err; });
+
+    return data;
   },
 
   head() {
     return {
-      title:
-        this.post === null
-          ? 'Tobi Adeyinka | Posts'
-          : `Tobi Adeyinka | ${this.post.fields.title}`,
+      title: `Tobi Adeyinka | ${this.post.fields.title}`,
       meta: [
         { charset: 'utf-8' },
         {
           name: 'description',
           content: "Hello. I'm Tobi, a Software Engineer currently based in Berlin."
         },
-        {
-          property: 'og:title',
-          content: this.post === null ? 'Tobi Adeyinka | Posts' : this.post.fields.title
-        },
+        { property: 'og:title', content: this.post.fields.title},
         {
           property: 'og:description',
           content: "Hello. I'm Tobi, a Software Engineer currently based in Berlin."
         },
         { property: 'og:site_name', content: 'Tobi Adeyinka | Posts' },
         { property: 'og:type', content: 'article' },
-        {
-          property: 'og:url',
-          content:
-            this.post === null
-              ? 'https://heytobi.dev/posts'
-              : `https://heytobi.dev/post/${this.post.fields.slug}`
-        },
-        {
-          property: 'og:image',
-          content: this.post === null
-              ? `https://heytobi.dev${Me}`
-              : this.post.fields.image[0].fields.file.url
-        },
+        { property: 'og:url', content: `https://heytobi.dev/post/${this.post.fields.slug}`},
+        { property: 'og:image', content: this.image },
         { name: 'robots', content: 'index,follow' }
       ]
     };
   },
 
-  created() {
-    this.getPost();
-  },
-
   mounted() {
     let themeCookie = 'theme';
-
     if (!CookieManager.cookieExists(themeCookie)) {
       CookieManager.createCookie(themeCookie, 'light', 365)
     }
@@ -132,40 +133,14 @@ export default {
       });
     },
 
-    getPost() {
-      const options = {
-        embedAssets: true,
-        includes: 1,
-        filters: new Comfortable.Filter().addAnd(
-          'slug',
-          'equal',
-          this.$route.params.slug
-        )
-      };
-
-      ComfortableApi.getDocuments(options)
-        .then(result => {
-          this.post = result.data[0];
-
-          let img = this.post.fields.image[0].fields.file.url;
-          this.articleImage = {
-            'background-image': 'url(' + img + ')'
-          };
-
-          this.author = _.find(result.includes.author, {
-            meta: { id: this.post.fields.author.meta.id }
-          });
-        })
-        .catch(err => {
-          throw err;
-        });
-    },
-
     applyTheme: function(theme) {
       document.body.style.background = theme.background;
       this.screenStyle.background = theme.background;
       this.articleStyle.color = theme.accent;
       this.articleStyle.background = theme.background;
+      this.articleImage = {
+        'background-image': 'url(' + this.image + ')'
+      };
     },
 
     /*
