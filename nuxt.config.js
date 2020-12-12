@@ -1,3 +1,5 @@
+import { ComfortableApi } from './util/Comfortable';
+
 export default {
   // Target (https://go.nuxtjs.dev/config-target)
   target: 'static',
@@ -41,8 +43,22 @@ export default {
   },
 
   generate: {
-    routes: [
-        '/post/jenkins-monitor-vue-kotlin'
-    ]
+    async routes() {
+      let routes = [];
+
+      const options = {
+        embedAssets: true,
+        limit: 100,
+        offset: 0
+      };
+
+      await ComfortableApi.getCollection('blogpost', options).then(result => {
+        result.data.forEach(post => {
+          routes.push('/post/' + post.fields.slug);
+        });
+      }).catch(err => {throw err;});
+
+      return routes;
+    }
   }
 }
