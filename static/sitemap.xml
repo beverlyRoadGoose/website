@@ -2,12 +2,14 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://heytobi.dev/</loc>
-    <changefreq>daily</changefreq>
-    <lastmod>2020-12-10</lastmod>
   </url>
   <url>
     <loc>https://heytobi.dev/posts/</loc>
-    <changefreq>daily</changefreq>
-    <lastmod>2020-12-10</lastmod>
+  </url>
+  <url>
+    <loc>https://www.heytobi.dev/post/jenkins-monitor-vue-kotlin</loc>
+  </url>
+  <url>
+    <loc>https://www.heytobi.dev/post/microservices-go-beginner-walkthrough</loc>
   </url>
 </urlset>
