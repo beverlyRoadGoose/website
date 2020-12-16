@@ -135,7 +135,7 @@ export default {
 }
 
 #content {
-  width: 40%;
+  width: 30%;
   margin: auto;
   transition: .5s;
   -moz-transition: .5s;
