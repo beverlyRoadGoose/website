@@ -13,7 +13,7 @@
         />
       </transition>
       <span id="hello" :style="helloStyle">
-        Hello &#128075;&#127998; I'm <b>Tobi</b>, a Software Engineer currently
+        Hello &#128075;&#127998;. I'm <b>Tobi</b>, a Software Engineer currently
         based in Berlin. Outside of programming, I enjoy discovering good music:
         I recommend
         <a
@@ -23,7 +23,9 @@
         >
           <b>The National</b></a
         >
-        every chance I get.<!--Occasionally,<NuxtLink to="/posts"><b> I write</b></NuxtLink>>.-->
+        every chance I get. Occasionally,
+        <NuxtLink to="/posts"><b> I write</b></NuxtLink
+        >. <br /><br />
         If you'd like to get in touch, feel free to
         <a href="mailto:hey@heytobi.dev"><b>write me</b></a>.
       </span>
@@ -49,7 +51,6 @@
           </svg>
         </a>
 
-        <!--
         <a
           href="https://stackoverflow.com/users/story/4961714"
           title="StackOverflow"
@@ -69,7 +70,6 @@
             />
           </svg>
         </a>
-        -->
 
         <a
           href="https://github.com/beverlyRoadGoose"
