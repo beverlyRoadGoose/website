@@ -213,7 +213,9 @@ export default {
 
 #article {
   text-align: left;
-  font-size: 0.9em;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 20px;
 }
 
 .author {
@@ -256,6 +258,7 @@ export default {
 }
 
 #post-date {
-  font-size: 0.8em;
+  font-size: 10px;
+  font-weight: 500;
 }
 </style>

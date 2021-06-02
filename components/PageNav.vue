@@ -75,7 +75,8 @@ export default {
 
 .nav-item {
   text-decoration: none;
-  font-size: 0.9em;
+  font-size: 13px;
+  font-weight: 500;
   transition: .5s;
   -moz-transition: .5s;
   -webkit-transition: .5s;
