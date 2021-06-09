@@ -13,8 +13,9 @@
         />
       </transition>
       <span id="hello" :style="helloStyle">
-        Hello &#128075;&#127998; I'm <b>Tobi</b>, a Software Engineer currently based in Berlin. Outside of programming,
-        I enjoy discovering good music: I'm a huge fan of
+        Hello &#128075;&#127998; I'm <b>Tobi</b>, a Software Engineer based in Berlin. Currently, I'm building stuff at
+        <a href="https://www.hellofreshgroup.com/en/" target="_blank" @click="recordHelloFreshClickEvent"><b>HelloFresh</b></a>.
+        Outside of programming I enjoy discovering good music: I'm a huge fan of
         <a href="https://www.youtube.com/watch?v=2O6duDDkhis" target="_blank" @click="recordNtlClickEvent">
           <b>The National</b>
         </a>.
@@ -177,6 +178,14 @@ export default {
       this.$gtag.event('clickedNtl', {
         event_category: 'externalLinkClick',
         event_label: 'ntlClick',
+        value: 1
+      });
+    },
+
+    recordHelloFreshClickEvent() {
+      this.$gtag.event('clickedHelloFresh', {
+        event_category: 'externalLinkClick',
+        event_label: 'helloFreshClick',
         value: 1
       });
     },
