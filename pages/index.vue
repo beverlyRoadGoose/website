@@ -95,7 +95,7 @@
 </template>
 
 <script>
-import Me from 'assets/img/me_beach.jpg';
+import Me from 'assets/img/me.jpg';
 import { Events } from '@/util/Events';
 import HeaderBar from '@/components/HeaderBar';
 import CookieManager from '@/util/CookieManager';
