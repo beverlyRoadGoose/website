@@ -15,10 +15,7 @@
       <span id="hello" :style="helloStyle">
         Hello &#128075;&#127998; I'm <b>Tobi</b>, a Software Engineer based in Berlin. Currently, I'm building stuff at
         <a href="https://www.hellofreshgroup.com/en/" target="_blank" @click="recordHelloFreshClickEvent"><b>HelloFresh</b></a>.
-        Outside of programming I enjoy discovering good music: I'm a huge fan of
-        <a href="https://www.youtube.com/watch?v=2O6duDDkhis" target="_blank" @click="recordNtlClickEvent">
-          <b>The National</b>
-        </a>.
+        Outside of programming I enjoy discovering <a href="https://www.youtube.com/watch?v=TeaDE1magRk" target="_blank" @click="recordMusicClickEvent"><b>good music</b></a>.
       </span>
 
       <div id="find-me">
@@ -70,7 +67,7 @@
 
 
         <a
-          href="https://spoti.fi/2D7U5TS"
+          href="https://open.spotify.com/playlist/4rbQxVedKQww1Rm8YS3kSN?si=46701c94b24a4316&nd=1"
           title="Spotify"
           class="find-me"
           :style="findMeStyle"
@@ -87,8 +84,7 @@
       </div>
 
       <div id="quote" :style="helloStyle">
-        Let everything happen to you. Beauty and Terror. Just keep going. No
-        feeling is final.
+        Let everything happen to you. Beauty and Terror. Just keep going. No feeling is final.
       </div>
     </div>
   </div>
@@ -112,7 +108,7 @@ export default {
       {
         name: 'description',
         content: "Hello. I'm Tobi, a Software Engineer currently based in Berlin. Currently, I'm building stuff at HelloFresh. " +
-            "Outside of programming I enjoy discovering good music: I'm a huge fan of The National."
+            "Outside of programming I enjoy discovering good music."
       },
       { property: 'og:title', content: 'Tobi Adeyinka' },
       {
@@ -175,10 +171,10 @@ export default {
       });
     },
 
-    recordNtlClickEvent() {
-      this.$gtag.event('clickedNtl', {
+    recordMusicClickEvent() {
+      this.$gtag.event('clickedMusic', {
         event_category: 'externalLinkClick',
-        event_label: 'ntlClick',
+        event_label: 'musicClick',
         value: 1
       });
     },
