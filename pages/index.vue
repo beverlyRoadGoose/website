@@ -111,7 +111,8 @@ export default {
       { charset: 'utf-8' },
       {
         name: 'description',
-        content: "Hello. I'm Tobi, a Software Engineer currently based in Berlin."
+        content: "Hello. I'm Tobi, a Software Engineer currently based in Berlin. Currently, I'm building stuff at HelloFresh. " +
+            "Outside of programming I enjoy discovering good music: I'm a huge fan of The National."
       },
       { property: 'og:title', content: 'Tobi Adeyinka' },
       {
