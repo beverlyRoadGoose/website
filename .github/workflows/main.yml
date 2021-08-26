@@ -1,8 +1,9 @@
-  on: push
-  name: 🚀 Deploy Live
+  on:
+    push:
+      branches: [ main ]
+
   jobs:
     deploy-live:
-      name: 🚀 Deploy Live
       runs-on: ubuntu-latest
       steps:
         - name: 🚚 Get latest code
@@ -24,5 +25,5 @@
             server: ${{ secrets.FTP_HOST }}
             username: ${{ secrets.FTP_USERNAME }}
             password: ${{ secrets.FTP_PASSWORD }}
-            local-dir: ./dist/
+            local-dir: dist/
             server-dir: public_html/
