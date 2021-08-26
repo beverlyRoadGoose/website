@@ -1,0 +1,28 @@
+  on: push
+  name: 🚀 Deploy
+  jobs:
+    deploy-live:
+      name: 🎉 Deploy
+      runs-on: ubuntu-latest
+      steps:
+        - name: 🚚 Get latest code
+          uses: actions/checkout@v2
+
+        - name: Use Node.js 16
+          uses: actions/setup-node@v2-beta
+          with:
+            node-version: '16'
+
+        - name: 🔨 Build Project
+          run: |
+            npm install
+            npm run generate
+
+        - name: 📂 Sync files
+          uses: SamKirkland/FTP-Deploy-Action@4.1.0
+          with:
+            server: ${{ secrets.FTP_HOST }}
+            username: ${{ secrets.FTP_USERNAME }}
+            password: ${{ secrets.FTP_PASSWORD }}
+            local-dir: ./dist/
+            server-dir: public_html/
