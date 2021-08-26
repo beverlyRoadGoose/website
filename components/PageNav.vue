@@ -1,18 +1,12 @@
 <template>
   <div id="page-nav">
     <div class="nav-item-wrapper">
-      <NuxtLink
-        to="/posts"
-        class="nav-item"
-        :style="navItemStyle"
-        title="Posts"
-      >Posts
-      </NuxtLink>
+      <NuxtLink to="/" class="nav-item" :style="navItemStyle" title="Home">Home</NuxtLink>
+      <div class="underline" :style="navUnderlineStyle"></div>
     </div>
     <div class="nav-item-wrapper">
-      <NuxtLink to="/" class="nav-item" :style="navItemStyle" title="Home">
-        Home
-      </NuxtLink>
+      <NuxtLink to="/posts" class="nav-item" :style="navItemStyle" title="Posts">Posts</NuxtLink>
+      <div class="underline" :style="navUnderlineStyle"></div>
     </div>
   </div>
 </template>
@@ -42,6 +36,10 @@ export default {
     return {
       navItemStyle: {
         color: null
+      },
+
+      navUnderlineStyle: {
+        backgroundColor: null
       }
     };
   },
@@ -49,6 +47,7 @@ export default {
   methods: {
     applyTheme: function(theme) {
       this.navItemStyle.color = theme.accent;
+      this.navUnderlineStyle.backgroundColor = theme.accent;
     }
   },
 
@@ -69,21 +68,28 @@ export default {
 }
 
 .nav-item-wrapper {
-  float: right;
-  margin-left: 10px;
+  display: inline-block;
+  margin-right: 5px;
 }
 
 .nav-item {
   text-decoration: none;
   font-size: 13px;
   font-weight: 500;
+}
+
+.underline {
+  width: 0;
+  border: 0;
+  margin: 0;
+  min-height: 2px;
   transition: .5s;
   -moz-transition: .5s;
   -webkit-transition: .5s;
   -o-transition: .5s;
 }
 
-.nav-item:hover {
-  text-decoration: underline;
+.nav-item-wrapper:hover .underline {
+  width: 100%;
 }
 </style>

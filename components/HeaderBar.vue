@@ -27,8 +27,12 @@ export default {
   float: left;
 }
 
+#theme-switch {
+  float: left;
+  margin-top: 2px
+}
+
 #page-nav {
-  float: right;
-  width: 90%;
+  margin-left: 15px;
 }
 </style>
