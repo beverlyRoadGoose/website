@@ -15,7 +15,7 @@
       <span id="hello" :style="helloStyle">
         Hello &#128075;&#127998; I'm <b>Tobi</b>, a Software Engineer based in Berlin. Currently, I'm building stuff at
         <a href="https://www.hellofreshgroup.com/en/" target="_blank" @click="recordHelloFreshClickEvent"><b>HelloFresh</b></a>.
-        Outside of programming I enjoy discovering <a href="https://www.youtube.com/watch?v=TeaDE1magRk" target="_blank" @click="recordMusicClickEvent"><b>good music</b></a>.
+        Outside of programming, I enjoy discovering <a href="https://www.youtube.com/watch?v=TeaDE1magRk" target="_blank" @click="recordMusicClickEvent"><b>good music</b></a>.
       </span>
 
       <div id="find-me">
@@ -108,7 +108,7 @@ export default {
       {
         name: 'description',
         content: "Hello. I'm Tobi, a Software Engineer currently based in Berlin. Currently, I'm building stuff at HelloFresh. " +
-            "Outside of programming I enjoy discovering good music."
+            "Outside of programming, I enjoy discovering good music."
       },
       { property: 'og:title', content: 'Tobi Adeyinka' },
       {
