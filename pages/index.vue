@@ -264,7 +264,7 @@ export default {
 
 #me {
   width: 100%;
-  margin-bottom: 25px;
+  margin-bottom: 15px;
   border-radius: 3px;
 }
 
@@ -281,7 +281,7 @@ export default {
   width: 100%;
   text-align: left;
   line-height: 20px;
-  margin-bottom: 25px;
+  margin-bottom: 20px;
   font-size: 13px;
   font-weight: 500;
   transition: .5s;
