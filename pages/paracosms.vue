@@ -2,12 +2,11 @@
   <div id="paracosms" :style="screenStyle">
     <div id="content">
       <header-bar active="paracosms" />
-      <button
-          id="load-more-btn"
-          v-if="totalParacosms > paracosms.length"
-          @click="getParacosms"
-      >
-        {{ loading ? 'Loading...' : 'Load more' }}
+      <div v-for="paracosm in paracosms" :key="paracosm.meta.id">
+        <paracosm :paracosm="paracosm"/>
+      </div>
+      <button id="load-more-btn" v-if="totalParacosms > paracosms.length" @click="getParacosms">
+        {{ loading ? 'Loading...' : 'View more' }}
       </button>
     </div>
   </div>
@@ -16,16 +15,18 @@
 <script>
 import HeaderBar from '@/components/HeaderBar';
 import ArticlePreview from '@/components/ArticlePreview';
+import Paracosm from '@/components/Paracosm';
 import Me from 'assets/img/me_beach.jpg';
 import CookieManager from '@/util/CookieManager';
 import { Theme } from '@/util/Theme';
 import { Events } from '@/util/Events';
 import { ComfortableApi } from '@/util/Comfortable';
+import SpotifyWebApi from 'spotify-web-api-js'
 
 export default {
   name: "paracosms",
   transition: {},
-  components: { HeaderBar },
+  components: { HeaderBar, Paracosm },
   head: {
     title: 'Tobi Adeyinka | Paracosms',
     htmlAttrs: {
@@ -53,12 +54,10 @@ export default {
     ]
   },
 
-  created() {
-    this.getParacosms();
-  },
-
   beforeMount() {
     this.importSpotifySDK()
+    this.parseSpotifytoken();
+    this.setupSpotifyPlayback();
   },
 
   mounted() {
@@ -79,8 +78,8 @@ export default {
     if (!this.$route.fullPath.includes("access_token")) {
       this.spotifyAuth();
     }
-    this.parseSpotifytoken();
-    this.setupSpotifyPlayback();
+
+    this.getParacosms();
   },
 
   data() {
@@ -115,7 +114,7 @@ export default {
 
     parseSpotifytoken() {
       if (!this.$route.fullPath.includes("access_token")) {
-        this.$route.push('/');
+        this.$router.push('/');
       }
 
       let hashSections = this.$route.hash.split('&')
@@ -161,6 +160,9 @@ export default {
 
     getParacosms() {
       this.loading = true;
+      let self = this;
+      let spotifyApi = new SpotifyWebApi();
+      spotifyApi.setAccessToken(this.spotify.token);
 
       const options = {
         embedAssets: true,
@@ -173,11 +175,19 @@ export default {
 
       ComfortableApi.getCollection('paracosm', options)
         .then(result => {
-          this.paracosms.push(...result.data);
           this.totalParacosms = result.meta.total;
           this.loading = false;
 
-          console.log(result)
+          result.data.forEach((p) => {
+            spotifyApi.getPlaylist(p.fields.spotifyPlaylistId)
+              .then(function(data) {
+                p.fields.playlist = data;
+              }, function(err) {
+                console.error(err);
+              });
+          });
+
+          this.paracosms.push(...result.data)
         })
         .catch(err => {
           this.loading = false;

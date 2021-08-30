@@ -5,12 +5,8 @@
       <div v-for="post in posts" :key="post.meta.id">
         <article-preview :article="post" />
       </div>
-      <button
-        id="load-more-btn"
-        v-if="totalPosts > posts.length"
-        @click="getPosts"
-      >
-        {{ loading ? 'Loading...' : 'Load more' }}
+      <button id="load-more-btn" v-if="totalPosts > posts.length" @click="getPosts">
+        {{ loading ? 'Loading...' : 'View more' }}
       </button>
     </div>
   </div>
