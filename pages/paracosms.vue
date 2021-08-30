@@ -34,7 +34,9 @@ export default {
       { property: 'og:title', content: 'Tobi Adeyinka | Paracosms' },
       {
         property: 'og:description',
-        content: "Hello. I'm Tobi, a Software Engineer currently based in Berlin."
+        content: "Hello. I'm Tobi, a Software Engineer currently based in Berlin. Outside of programming, " +
+            "I enjoy discovering good music, on this page, you can find the songs I've particlulary enjoyed as curated " +
+            "playlists that I like to call Paracosms."
       },
       { property: 'og:site_name', content: 'Tobi Adeyinka | Paracosms' },
       { property: 'og:type', content: 'website' },
