@@ -2,6 +2,13 @@
   <div id="paracosms" :style="screenStyle">
     <div id="content">
       <header-bar active="paracosms" />
+      <button
+          id="load-more-btn"
+          v-if="totalParacosms > paracosms.length"
+          @click="getParacosms"
+      >
+        {{ loading ? 'Loading...' : 'Load more' }}
+      </button>
     </div>
   </div>
 </template>
@@ -50,6 +57,10 @@ export default {
     this.getParacosms();
   },
 
+  beforeMount() {
+    this.importSpotifySDK()
+  },
+
   mounted() {
     let themeCookie = 'theme';
 
@@ -64,12 +75,24 @@ export default {
     this.$root.$on(Events.THEME_CHANGED, (event, theme) => {
       this.applyTheme(theme);
     });
+
+    if (!this.$route.fullPath.includes("access_token")) {
+      this.spotifyAuth();
+    }
+    this.parseSpotifytoken();
+    this.setupSpotifyPlayback();
   },
 
   data() {
     return {
       screenStyle: {
         background: null
+      },
+      spotify: {
+        clientId: "9587f6e9528a467790509c5d9241fad2",
+        token: null,
+        scopes: "streaming user-read-email user-read-private",
+        redirectUri: "http://localhost:3000/paracosms"
       },
       paracosms: [],
       totalParacosms: 0,
@@ -78,6 +101,58 @@ export default {
   },
 
   methods: {
+    importSpotifySDK() {
+      const spotifySDK = document.createElement('script')
+      spotifySDK.setAttribute('src', 'https://sdk.scdn.co/spotify-player.js')
+      document.head.appendChild(spotifySDK)
+    },
+
+    spotifyAuth() {
+      let url = "https://accounts.spotify.com/authorize?response_type=token&client_id="
+          + this.spotify.clientId + "&redirect_uri=" + this.spotify.redirectUri + "&scope=" + this.spotify.scopes;
+      window.location.href = url
+    },
+
+    parseSpotifytoken() {
+      if (!this.$route.fullPath.includes("access_token")) {
+        this.$route.push('/');
+      }
+
+      let hashSections = this.$route.hash.split('&')
+      this.spotify.token = (hashSections[0].split('='))[1]
+    },
+
+    setupSpotifyPlayback() {
+      window.onSpotifyWebPlaybackSDKReady = () => {
+        const player = new Spotify.Player({
+          name: "Tobi's Paracosms",
+          getOAuthToken: cb => { cb(this.spotify.token); }
+        });
+
+        // Error handling
+        player.addListener('initialization_error', ({ message }) => { console.error(message); });
+        player.addListener('authentication_error', ({ message }) => { console.error(message); });
+        player.addListener('account_error', ({ message }) => { console.error(message); });
+        player.addListener('playback_error', ({ message }) => { console.error(message); });
+
+        // Playback status updates
+        player.addListener('player_state_changed', state => { console.log(state); });
+
+        // Ready
+        player.addListener('ready', ({ device_id }) => {
+          console.log('Ready with Device ID', device_id);
+        });
+
+        // Not Ready
+        player.addListener('not_ready', ({ device_id }) => {
+          console.log('Device ID has gone offline', device_id);
+        });
+
+        // Connect to the player!
+        player.connect();
+      };
+    },
+
     track() {
       this.$gtag.pageview({
         page_path: '/paracosms'
@@ -85,6 +160,29 @@ export default {
     },
 
     getParacosms() {
+      this.loading = true;
+
+      const options = {
+        embedAssets: true,
+        limit: 10,
+        offset: this.paracosms.length,
+        sorting: {
+          'fields.date': 'DESC'
+        }
+      };
+
+      ComfortableApi.getCollection('paracosm', options)
+        .then(result => {
+          this.paracosms.push(...result.data);
+          this.totalParacosms = result.meta.total;
+          this.loading = false;
+
+          console.log(result)
+        })
+        .catch(err => {
+          this.loading = false;
+          throw err;
+        });
     },
 
     applyTheme: function(theme) {
@@ -117,5 +215,23 @@ export default {
   #content {
     width: 80%;
   }
+}
+
+#load-more-btn {
+  display: block;
+  padding: 7px;
+  border-radius: 3px;
+  cursor: pointer;
+  outline: none;
+  background-color: #e6e6e6;
+  border: 1px solid #cdcdcd;
+  transition: .5s;
+  -moz-transition: .5s;
+  -webkit-transition: .5s;
+  -o-transition: .5s;
+}
+
+#load-more-btn:hover {
+  background-color: #cdcdcd;
 }
 </style>
