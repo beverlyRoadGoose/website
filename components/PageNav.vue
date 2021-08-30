@@ -8,6 +8,10 @@
       <NuxtLink to="/posts" class="nav-item" :style="navItemStyle" title="Posts">Posts</NuxtLink>
       <div class="underline" :style="navUnderlineStyle"></div>
     </div>
+    <div class="nav-item-wrapper">
+      <NuxtLink to="/paracosms" class="nav-item" :style="navItemStyle" title="Paracosms">Paracosms</NuxtLink>
+      <div class="underline" :style="navUnderlineStyle"></div>
+    </div>
   </div>
 </template>
 
@@ -87,6 +91,10 @@ export default {
   -moz-transition: .5s;
   -webkit-transition: .5s;
   -o-transition: .5s;
+}
+
+.underline-active {
+  width: 100%;
 }
 
 .nav-item-wrapper:hover .underline {

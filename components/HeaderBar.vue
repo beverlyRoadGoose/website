@@ -1,6 +1,6 @@
 <template>
   <div id="header-bar">
-    <page-nav id="page-nav" />
+    <page-nav id="page-nav" :active="active"/>
     <theme-switch id="theme-switch" />
   </div>
 </template>

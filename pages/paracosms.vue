@@ -1,36 +1,26 @@
 <template>
-  <div id="blog" :style="screenStyle">
+  <div id="paracosms" :style="screenStyle">
     <div id="content">
-      <header-bar active="posts" />
-      <div v-for="post in posts" :key="post.meta.id">
-        <article-preview :article="post" />
-      </div>
-      <button
-        id="load-more-btn"
-        v-if="totalPosts > posts.length"
-        @click="getPosts"
-      >
-        {{ loading ? 'Loading...' : 'Load more' }}
-      </button>
+      <header-bar active="paracosms" />
     </div>
   </div>
 </template>
 
 <script>
 import HeaderBar from '@/components/HeaderBar';
-import { Events } from '@/util/Events';
-import CookieManager from '@/util/CookieManager';
-import { ComfortableApi } from '@/util/Comfortable';
-import { Theme } from '@/util/Theme';
 import ArticlePreview from '@/components/ArticlePreview';
-import Me from '@/assets/img/me_beach.jpg';
+import Me from 'assets/img/me_beach.jpg';
+import CookieManager from '@/util/CookieManager';
+import { Theme } from '@/util/Theme';
+import { Events } from '@/util/Events';
+import { ComfortableApi } from '@/util/Comfortable';
 
 export default {
-  name: 'posts',
+  name: "paracosms",
   transition: {},
-  components: { HeaderBar, ArticlePreview },
+  components: { HeaderBar },
   head: {
-    title: 'Tobi Adeyinka | Posts',
+    title: 'Tobi Adeyinka | Paracosms',
     htmlAttrs: {
       lang: 'en'
     },
@@ -41,21 +31,21 @@ export default {
         name: 'description',
         content: "Hello. I'm Tobi, a Software Engineer currently based in Berlin."
       },
-      { property: 'og:title', content: 'Tobi Adeyinka | Posts' },
+      { property: 'og:title', content: 'Tobi Adeyinka | Paracosms' },
       {
         property: 'og:description',
         content: "Hello. I'm Tobi, a Software Engineer currently based in Berlin."
       },
-      { property: 'og:site_name', content: 'Tobi Adeyinka | Posts' },
+      { property: 'og:site_name', content: 'Tobi Adeyinka | Paracosms' },
       { property: 'og:type', content: 'website' },
       { name: 'robots', content: 'index,follow' },
-      { property: 'og:url', content: 'https://heytobi.dev/posts' },
+      { property: 'og:url', content: 'https://heytobi.dev/paracosms' },
       { property: 'og:image', content: `https://heytobi.dev${Me}` }
     ]
   },
 
   created() {
-    this.getPosts();
+    this.getParacosms();
   },
 
   mounted() {
@@ -79,8 +69,8 @@ export default {
       screenStyle: {
         background: null
       },
-      posts: [],
-      totalPosts: 0,
+      paracosms: [],
+      totalParacosms: 0,
       loading: false
     };
   },
@@ -88,32 +78,11 @@ export default {
   methods: {
     track() {
       this.$gtag.pageview({
-        page_path: '/posts'
+        page_path: '/paracosms'
       });
     },
 
-    getPosts() {
-      this.loading = true;
-
-      const options = {
-        embedAssets: true,
-        limit: 10,
-        offset: this.posts.length,
-        sorting: {
-          'fields.date': 'DESC'
-        }
-      };
-
-      ComfortableApi.getCollection('blogpost', options)
-        .then(result => {
-          this.posts.push(...result.data);
-          this.totalPosts = result.meta.total;
-          this.loading = false;
-        })
-        .catch(err => {
-          this.loading = false;
-          throw err;
-        });
+    getParacosms() {
     },
 
     applyTheme: function(theme) {
@@ -124,9 +93,8 @@ export default {
 };
 </script>
 
-<style lang="less" scoped>
-
-#blog {
+<style scoped>
+#paracosms {
   min-height: 100vh;
   transition: .5s;
   -moz-transition: .5s;
@@ -147,23 +115,5 @@ export default {
   #content {
     width: 80%;
   }
-}
-
-#load-more-btn {
-  display: block;
-  padding: 7px;
-  border-radius: 3px;
-  cursor: pointer;
-  outline: none;
-  background-color: #e6e6e6;
-  border: 1px solid #cdcdcd;
-  transition: .5s;
-  -moz-transition: .5s;
-  -webkit-transition: .5s;
-  -o-transition: .5s;
-}
-
-#load-more-btn:hover {
-  background-color: #cdcdcd;
 }
 </style>
