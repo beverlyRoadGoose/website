@@ -2,7 +2,7 @@
   <div id="paracosms" :style="screenStyle">
     <div id="content">
       <header-bar active="paracosms" />
-      <div class="paracosm" v-for="paracosm in paracosms" :key="paracosm.spotifyPlaylistId">
+      <div class="paracosm" v-for="paracosm in sortedParacosms" :key="paracosm.spotifyPlaylistId">
         <paracosm :paracosm="paracosm"/>
       </div>
       <button id="load-more-btn" v-if="totalParacosms > paracosms.length" @click="getParacosms">
@@ -178,13 +178,13 @@ export default {
 
         result.data.forEach((p) => {
           spotifyApi.getPlaylist(p.fields.spotifyPlaylistId)
-              .then(data => {
-                p.fields.img = data.images[0].url
-                p.fields.spotify_url = data.external_urls.spotify
-                p.fields.tracks = data.tracks
-                this.paracosms.push(p.fields)
-              })
-              .catch(err => console.log(err));
+            .then(data => {
+              p.fields.img = data.images[0].url
+              p.fields.spotify_url = data.external_urls.spotify
+              p.fields.tracks = data.tracks
+              this.paracosms.push(p.fields)
+            })
+            .catch(err => console.log(err));
         });
       }).catch(err => {
         this.loading = false;
@@ -195,6 +195,14 @@ export default {
     applyTheme: function(theme) {
       document.body.style.background = theme.background;
       this.screenStyle.background = theme.background;
+    }
+  },
+
+  computed: {
+    sortedParacosms: function(a) {
+      return this.paracosms.sort(function(a, b) {
+        return b.number - a.number;
+      });
     }
   }
 };
