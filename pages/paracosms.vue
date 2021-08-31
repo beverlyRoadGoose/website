@@ -92,7 +92,7 @@ export default {
         clientId: "9587f6e9528a467790509c5d9241fad2",
         token: null,
         scopes: "streaming user-read-email user-read-private",
-        redirectUri: "http://localhost:3000/paracosms"
+        redirectUri: "https://heytobi.dev/paracosms"
       },
       paracosms: [],
       totalParacosms: 0,

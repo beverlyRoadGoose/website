@@ -1,12 +1,17 @@
 <template>
   <div id="paracosm">
-    <a :href="this.paracosm.spotify_url" target="_blank">
-      <img id="image" :src="this.paracosm.img" :alt="'Paracosm ' + this.paracosm.title" :title="'Paracosm ' + this.paracosm.title"/>
-    </a>
+    <div id="image-wrap" title="Play on Spotify">
+      <a :href="this.paracosm.spotify_url" target="_blank">
+        <img id="image" :src="this.paracosm.img" :alt="'Paracosm ' + this.paracosm.title" :title="'Paracosm ' + this.paracosm.title"/>
+        <div id="play">
+          <img src="@/assets/img/play.png"/>
+        </div>
+      </a>
+    </div>
     <div id="tracks">
-      <a :href="this.paracosm.spotify_url" target="_blank" title="View Playlist on Spotify"><h2 id="title">{{ this.paracosm.title }}</h2><br /></a>
+      <a :href="this.paracosm.spotify_url" target="_blank" title="Playlist on Spotify"><h2 id="title">{{ this.paracosm.title }}</h2><br /></a>
       <a :href="track.track.external_urls.spotify" class="track" v-for="(track, index) in tracks" :key="track.track.id" title="View Track on Spotify">
-        <span class="index">{{ index + 1 }}.</span> <span class="trackName" :style="screenStyle">{{ track.track.name }}</span><br />
+        <span class="index">{{ index + 1 }}.</span> <span class="track-name" :style="screenStyle">{{ track.track.name }}</span><br />
         <span class="artist">{{ artists(track.track.artists) }}</span>
       </a>
     </div>
@@ -77,6 +82,18 @@ export default {
   text-decoration: underline;
 }
 
+#image-wrap {
+  width: 200px;
+  height: 200px;
+  position: relative;
+  display: inline-block;
+}
+
+#image-wrap:hover #play {
+  visibility: visible;
+  opacity: 1;
+}
+
 #image {
   width: 200px;
   height: 200px;
@@ -84,6 +101,30 @@ export default {
   border-radius: 5px;
   margin-right: 20px;
   cursor: pointer;
+  position: relative;
+}
+
+#play {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+  border-radius: 5px;
+  top: 0;
+  opacity: 0;
+  transition: visibility 0s, opacity 0.3s linear;
+}
+
+#play img {
+  display: block;
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  top: 0;
+  margin: auto;
 }
 
 #tracks {
@@ -107,7 +148,7 @@ export default {
   text-decoration: none;
 }
 
-.track:hover .trackName{
+.track:hover .track-name{
   text-decoration: underline;
 }
 
@@ -122,15 +163,6 @@ export default {
 }
 
 @media only screen and (max-width: 1000px) {
-  #paracosm {
-    margin-bottom: 20px;
-  }
-
-  #image {
-    width: 100%;
-    height: auto;
-  }
-
   #tracks {
     float: none;
     width: 100%;
