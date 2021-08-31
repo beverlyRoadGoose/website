@@ -58,7 +58,7 @@ export default {
   beforeMount() {
     this.importSpotifySDK()
     this.parseSpotifytoken();
-    this.setupSpotifyPlayback();
+    //this.setupSpotifyPlayback();
   },
 
   mounted() {
