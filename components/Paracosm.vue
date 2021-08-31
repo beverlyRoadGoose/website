@@ -92,7 +92,7 @@ export default {
   display: inline-block;
   width: 25px;
   margin-top: 0;
-  margin-right: 5px;
+  margin-right: 7px;
   vertical-align: middle;
 }
 
