@@ -74,6 +74,7 @@ export default {
 #title-wrap {
   position: relative;
   display: table-cell;
+  width: calc(100% - 220px);
 }
 
 #title-wrap:hover #title {
