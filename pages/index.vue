@@ -68,7 +68,7 @@
 
 
         <a
-          href="https://open.spotify.com/playlist/4rbQxVedKQww1Rm8YS3kSN?si=46701c94b24a4316&nd=1"
+          href="https://open.spotify.com/user/tobex9434"
           title="Spotify"
           class="find-me"
           :style="findMeStyle"
