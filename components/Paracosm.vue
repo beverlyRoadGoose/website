@@ -9,8 +9,8 @@
       </a>
     </div>
     <div id="tracks">
-      <a :href="this.paracosm.spotify_url" target="_blank" title="Playlist on Spotify"><h2 id="title">{{ this.paracosm.title }}</h2><br /></a>
-      <a :href="track.track.external_urls.spotify" class="track" v-for="(track, index) in tracks" :key="track.track.id" title="View Track on Spotify">
+      <a :href="this.paracosm.spotify_url" target="_blank" title="Play on Spotify"><h2 id="title">{{ this.paracosm.title }}</h2><br /></a>
+      <a :href="track.track.external_urls.spotify" target="_blank" class="track" v-for="(track, index) in tracks" :key="track.track.id" title="Play on Spotify">
         <span class="index">{{ index + 1 }}.</span> <span class="track-name" :style="screenStyle">{{ track.track.name }}</span><br />
         <span class="artist">{{ artists(track.track.artists) }}</span>
       </a>
