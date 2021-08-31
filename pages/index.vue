@@ -252,7 +252,7 @@ export default {
 }
 
 #content {
-  width: 30%;
+  width: 40%;
   margin: auto;
 }
 

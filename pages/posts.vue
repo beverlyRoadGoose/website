@@ -20,6 +20,7 @@ import { ComfortableApi } from '@/util/Comfortable';
 import { Theme } from '@/util/Theme';
 import ArticlePreview from '@/components/ArticlePreview';
 import Me from '@/assets/img/me_beach.jpg';
+import Comfortable from 'comfortable-javascript';
 
 export default {
   name: 'posts',
@@ -95,9 +96,7 @@ export default {
         embedAssets: true,
         limit: 10,
         offset: this.posts.length,
-        sorting: {
-          'fields.date': 'DESC'
-        }
+        sorting: new Comfortable.Sorting().add('date', 'desc')
       };
 
       ComfortableApi.getCollection('blogpost', options)
@@ -131,7 +130,7 @@ export default {
 }
 
 #content {
-  width: 30%;
+  width: 40%;
   margin: auto;
   transition: .5s;
   -moz-transition: .5s;

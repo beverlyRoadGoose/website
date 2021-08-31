@@ -2,7 +2,7 @@
   <div id="paracosms" :style="screenStyle">
     <div id="content">
       <header-bar active="paracosms" />
-      <div v-for="paracosm in paracosms" :key="paracosm.meta.id">
+      <div class="paracosm" v-for="paracosm in paracosms" :key="paracosm.spotifyPlaylistId">
         <paracosm :paracosm="paracosm"/>
       </div>
       <button id="load-more-btn" v-if="totalParacosms > paracosms.length" @click="getParacosms">
@@ -22,6 +22,7 @@ import { Theme } from '@/util/Theme';
 import { Events } from '@/util/Events';
 import { ComfortableApi } from '@/util/Comfortable';
 import SpotifyWebApi from 'spotify-web-api-js'
+import Comfortable from 'comfortable-javascript';
 
 export default {
   name: "paracosms",
@@ -168,31 +169,27 @@ export default {
         embedAssets: true,
         limit: 10,
         offset: this.paracosms.length,
-        sorting: {
-          'fields.date': 'DESC'
-        }
+        sorting: new Comfortable.Sorting().add('number', 'desc')
       };
 
-      ComfortableApi.getCollection('paracosm', options)
-        .then(result => {
-          this.totalParacosms = result.meta.total;
-          this.loading = false;
+      ComfortableApi.getCollection('paracosm', options).then(result => {
+        this.totalParacosms = result.meta.total;
+        this.loading = false;
 
-          result.data.forEach((p) => {
-            spotifyApi.getPlaylist(p.fields.spotifyPlaylistId)
-              .then(function(data) {
-                p.fields.playlist = data;
-              }, function(err) {
-                console.error(err);
-              });
-          });
-
-          this.paracosms.push(...result.data)
-        })
-        .catch(err => {
-          this.loading = false;
-          throw err;
+        result.data.forEach((p) => {
+          spotifyApi.getPlaylist(p.fields.spotifyPlaylistId)
+              .then(data => {
+                p.fields.img = data.images[0].url
+                p.fields.spotify_url = data.external_urls.spotify
+                p.fields.tracks = data.tracks
+                this.paracosms.push(p.fields)
+              })
+              .catch(err => console.log(err));
         });
+      }).catch(err => {
+        this.loading = false;
+        throw err;
+      });
     },
 
     applyTheme: function(theme) {
@@ -213,7 +210,7 @@ export default {
 }
 
 #content {
-  width: 30%;
+  width: 40%;
   margin: auto;
   transition: .5s;
   -moz-transition: .5s;

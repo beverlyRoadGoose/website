@@ -19,9 +19,9 @@ export default {
 <style lang="less" scoped>
 #header-bar {
   width: 100%;
-  height: 50px;
+  height: 55px;
   padding-top: 15px;
-  padding-bottom: 15px;
+  padding-bottom: 20px;
   box-sizing: border-box;
   margin: auto;
   float: left;
