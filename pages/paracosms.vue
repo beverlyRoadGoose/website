@@ -58,9 +58,7 @@ export default {
   },
 
   beforeMount() {
-    this.importSpotifySDK()
     this.parseSpotifytoken();
-    //this.setupSpotifyPlayback();
   },
 
   mounted() {
@@ -103,12 +101,6 @@ export default {
   },
 
   methods: {
-    importSpotifySDK() {
-      const spotifySDK = document.createElement('script')
-      spotifySDK.setAttribute('src', 'https://sdk.scdn.co/spotify-player.js')
-      document.head.appendChild(spotifySDK)
-    },
-
     spotifyAuth() {
       let url = "https://accounts.spotify.com/authorize?response_type=token&client_id="
           + this.spotify.clientId + "&redirect_uri=" + this.spotify.redirectUri + "&scope=" + this.spotify.scopes;
@@ -122,37 +114,6 @@ export default {
 
       let hashSections = this.$route.hash.split('&')
       this.spotify.token = (hashSections[0].split('='))[1]
-    },
-
-    setupSpotifyPlayback() {
-      window.onSpotifyWebPlaybackSDKReady = () => {
-        const player = new Spotify.Player({
-          name: "Tobi's Paracosms",
-          getOAuthToken: cb => { cb(this.spotify.token); }
-        });
-
-        // Error handling
-        player.addListener('initialization_error', ({ message }) => { console.error(message); });
-        player.addListener('authentication_error', ({ message }) => { console.error(message); });
-        player.addListener('account_error', ({ message }) => { console.error(message); });
-        player.addListener('playback_error', ({ message }) => { console.error(message); });
-
-        // Playback status updates
-        player.addListener('player_state_changed', state => { console.log(state); });
-
-        // Ready
-        player.addListener('ready', ({ device_id }) => {
-          console.log('Ready with Device ID', device_id);
-        });
-
-        // Not Ready
-        player.addListener('not_ready', ({ device_id }) => {
-          console.log('Device ID has gone offline', device_id);
-        });
-
-        // Connect to the player!
-        player.connect();
-      };
     },
 
     track() {
