@@ -91,7 +91,7 @@ export default {
       spotify: {
         clientId: "9587f6e9528a467790509c5d9241fad2",
         token: null,
-        scopes: "streaming user-read-email user-read-private",
+        scopes: "",
         redirectUri: "https://heytobi.dev/paracosms"
       },
       paracosms: [],
