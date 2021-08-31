@@ -9,7 +9,7 @@
       </a>
     </div>
     <div id="tracks">
-      <a :href="this.paracosm.spotify_url" target="_blank" title="Play on Spotify"><h2 id="title">{{ this.paracosm.title }}</h2><br /></a>
+      <a id="title-wrap" :href="this.paracosm.spotify_url" target="_blank" title="Play on Spotify"><img id="spotify-logo" src="@/assets/img/Spotify.png"/><h2 id="title">{{ this.paracosm.title }}</h2><br /></a>
       <a :href="track.track.external_urls.spotify" target="_blank" class="track" v-for="(track, index) in tracks" :key="track.track.id" title="Play on Spotify">
         <span class="index">{{ index + 1 }}.</span> <span class="track-name" :style="screenStyle">{{ track.track.name }}</span><br />
         <span class="artist">{{ artists(track.track.artists) }}</span>
@@ -70,16 +70,30 @@ export default {
   display: block;
   clear: both;
 }
+#title-wrap {
+  position: relative;
+  display: table-cell;
+}
 
 #title {
   display: inline-block;
-  margin-top: 5px;
+  margin-top: 0;
   margin-bottom: 5px;
   color: #ccc;
+  vertical-align: middle;
+  padding-top: 7px;
 }
 
 #title:hover {
   text-decoration: underline;
+}
+
+#spotify-logo {
+  display: inline-block;
+  width: 25px;
+  margin-top: 0;
+  margin-right: 5px;
+  vertical-align: middle;
 }
 
 #image-wrap {
