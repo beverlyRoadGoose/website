@@ -38,7 +38,9 @@ export default {
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       {
         name: 'description',
-        content: "Hello. I'm Tobi, a Software Engineer currently based in Berlin."
+        content: "Hello. I'm Tobi, a Software Engineer currently based in Berlin. Outside of programming, " +
+            "I enjoy discovering good music. On this page, you'll find my favorite songs as curated " +
+            "playlists that I like to call Paracosms."
       },
       { property: 'og:title', content: 'Tobi Adeyinka | Paracosms' },
       {
