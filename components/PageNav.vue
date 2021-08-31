@@ -2,11 +2,15 @@
   <div id="page-nav">
     <div class="nav-item-wrapper">
       <NuxtLink to="/" class="nav-item" :style="navItemStyle" title="Home">Home</NuxtLink>
-      <div class="underline" :style="navUnderlineStyle"></div>
+      <div class="underline" :style="navUnderlineStyle" :class="this.underline('home')"></div>
     </div>
     <div class="nav-item-wrapper">
       <NuxtLink to="/posts" class="nav-item" :style="navItemStyle" title="Posts">Posts</NuxtLink>
-      <div class="underline" :style="navUnderlineStyle"></div>
+      <div class="underline" :style="navUnderlineStyle" :class="this.underline('posts')"></div>
+    </div>
+    <div class="nav-item-wrapper">
+      <NuxtLink to="/paracosms" class="nav-item" :style="navItemStyle" title="Paracosms">Paracosms</NuxtLink>
+      <div class="underline" :style="navUnderlineStyle" :class="this.underline('paracosms')"></div>
     </div>
   </div>
 </template>
@@ -48,6 +52,10 @@ export default {
     applyTheme: function(theme) {
       this.navItemStyle.color = theme.accent;
       this.navUnderlineStyle.backgroundColor = theme.accent;
+    },
+
+    underline: function(route) {
+      return this.active == route ? 'underline-active' : ''
     }
   },
 
@@ -87,6 +95,10 @@ export default {
   -moz-transition: .5s;
   -webkit-transition: .5s;
   -o-transition: .5s;
+}
+
+.underline-active {
+  width: 100%;
 }
 
 .nav-item-wrapper:hover .underline {

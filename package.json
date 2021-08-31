@@ -9,6 +9,7 @@
     "generate": "nuxt generate"
   },
   "dependencies": {
+    "@nuxtjs/axios": "^5.13.6",
     "comfortable-javascript": "^1.2.2",
     "core-js": "^3.6.5",
     "dayjs": "^1.9.7",
@@ -17,6 +18,7 @@
     "less-loader": "^7.1.0",
     "lodash": "^4.17.20",
     "nuxt": "^2.15.6",
+    "spotify-web-api-js": "^1.5.1",
     "vue-gtag": "^1.10.0",
     "vue-page-transition": "^0.2.2"
   },
