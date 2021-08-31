@@ -19,7 +19,7 @@ import CookieManager from '@/util/CookieManager';
 import { ComfortableApi } from '@/util/Comfortable';
 import { Theme } from '@/util/Theme';
 import ArticlePreview from '@/components/ArticlePreview';
-import Me from '@/assets/img/me_beach.jpg';
+import Me from '@/assets/img/me.jpg';
 import Comfortable from 'comfortable-javascript';
 
 export default {

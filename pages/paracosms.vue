@@ -16,7 +16,7 @@
 import HeaderBar from '@/components/HeaderBar';
 import ArticlePreview from '@/components/ArticlePreview';
 import Paracosm from '@/components/Paracosm';
-import Me from 'assets/img/me_beach.jpg';
+import Me from 'assets/img/me.jpg';
 import CookieManager from '@/util/CookieManager';
 import { Theme } from '@/util/Theme';
 import { Events } from '@/util/Events';
@@ -44,7 +44,7 @@ export default {
       {
         property: 'og:description',
         content: "Hello. I'm Tobi, a Software Engineer currently based in Berlin. Outside of programming, " +
-            "I enjoy discovering good music, on this page, you can find my favorite songs as curated " +
+            "I enjoy discovering good music. On this page, you'll find my favorite songs as curated " +
             "playlists that I like to call Paracosms."
       },
       { property: 'og:site_name', content: 'Tobi Adeyinka | Paracosms' },
