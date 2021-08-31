@@ -44,7 +44,7 @@ export default {
       {
         property: 'og:description',
         content: "Hello. I'm Tobi, a Software Engineer currently based in Berlin. Outside of programming, " +
-            "I enjoy discovering good music, on this page, you can find the songs I've particlulary enjoyed as curated " +
+            "I enjoy discovering good music, on this page, you can find my favorite songs as curated " +
             "playlists that I like to call Paracosms."
       },
       { property: 'og:site_name', content: 'Tobi Adeyinka | Paracosms' },
