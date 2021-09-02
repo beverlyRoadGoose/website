@@ -16,7 +16,7 @@
         Hello &#128075;&#127998; I'm <b>Tobi</b>, a Software Engineer based in Berlin. Currently, I'm building stuff at
         <a href="https://www.hellofreshgroup.com/en/" target="_blank" @click="recordHelloFreshClickEvent"><b>HelloFresh</b></a>.
         Outside of programming, I enjoy discovering <a href="https://www.youtube.com/watch?v=TeaDE1magRk" target="_blank" @click="recordMusicClickEvent"><b>good music</b></a>.
-        I share my favorite as curated playlists that I like to call <NuxtLink to="/paracosms"><b>Paracosms</b></NuxtLink>.<sup><a href="https://en.wikipedia.org/wiki/Paracosm" target="_blank" style="text-decoration:none">?</a></sup>
+        I share my favorites as curated playlists that I like to call <NuxtLink to="/paracosms"><b>Paracosms</b></NuxtLink>.<sup><a href="https://en.wikipedia.org/wiki/Paracosm" target="_blank" style="text-decoration:none">?</a></sup>
       </span>
 
       <div id="find-me">
