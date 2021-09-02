@@ -70,9 +70,15 @@ export default {
   display: block;
   clear: both;
 }
+
 #title-wrap {
   position: relative;
-  display: table-cell;
+  display: table;
+  width: 100%;
+}
+
+#title-wrap:hover #title {
+  text-decoration: underline;
 }
 
 #title {
