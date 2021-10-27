@@ -252,14 +252,8 @@ export default {
 }
 
 #content {
-  width: 40%;
+  width: 35%;
   margin: auto;
-}
-
-@media only screen and (max-width: 1000px) {
-  #content {
-    width: 80%;
-  }
 }
 
 #me {
@@ -280,9 +274,8 @@ export default {
   display: block;
   width: 100%;
   text-align: left;
-  line-height: 20px;
   margin-bottom: 20px;
-  font-size: 13px;
+  font-size: .8em;
   font-weight: 500;
   transition: .5s;
   -moz-transition: .5s;
@@ -293,7 +286,7 @@ export default {
 #quote {
   text-align: left;
   font-style: italic;
-  font-size: 12px;
+  font-size: .8em;
   font-weight: 500;
   margin-top: 20px;
   margin-bottom: 20px;
@@ -326,4 +319,25 @@ export default {
   width: 16px;
   height: 16px;
 }
+
+@media only screen and (max-width: 1000px) {
+  #content {
+    width: 80%;
+  }
+}
+
+@media only screen and (min-width: 1500px) {
+  #content {
+    width: 30%;
+  }
+
+  #hello {
+    font-size: .9em;
+  }
+
+  #quote {
+    font-size: .9em;
+  }
+}
+
 </style>

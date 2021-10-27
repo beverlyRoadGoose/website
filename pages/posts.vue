@@ -130,18 +130,12 @@ export default {
 }
 
 #content {
-  width: 40%;
+  width: 35%;
   margin: auto;
   transition: .5s;
   -moz-transition: .5s;
   -webkit-transition: .5s;
   -o-transition: .5s;
-}
-
-@media only screen and (max-width: 1000px) {
-  #content {
-    width: 80%;
-  }
 }
 
 #load-more-btn {
@@ -160,5 +154,17 @@ export default {
 
 #load-more-btn:hover {
   background-color: #cdcdcd;
+}
+
+@media only screen and (max-width: 1000px) {
+  #content {
+    width: 80%;
+  }
+}
+
+@media only screen and (min-width: 1500px) {
+  #content {
+    width: 30%;
+  }
 }
 </style>

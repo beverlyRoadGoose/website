@@ -82,7 +82,7 @@ export default {
 
 .nav-item {
   text-decoration: none;
-  font-size: 13px;
+  font-size: .8em;
   font-weight: 500;
 }
 
@@ -103,5 +103,18 @@ export default {
 
 .nav-item-wrapper:hover .underline {
   width: 100%;
+}
+
+
+@media only screen and (max-width: 1000px) {
+  .nav-item {
+    font-size: .8em;
+  }
+}
+
+@media only screen and (min-width: 1500px) {
+  .nav-item {
+    font-size: .9em;
+  }
 }
 </style>

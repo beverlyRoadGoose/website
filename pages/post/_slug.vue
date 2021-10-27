@@ -197,23 +197,13 @@ export default {
   -o-transition: .5s;
 }
 
-@media only screen and (max-width: 1000px) {
-  #header-wrap {
-    width: 80%;
-  }
-
-  #article-wrap {
-    width: 80%;
-  }
-}
-
 #title {
   text-align: left;
 }
 
 #article {
   text-align: left;
-  font-size: 13px;
+  font-size: .8em;
   font-weight: 500;
   line-height: 20px;
 }
@@ -246,11 +236,6 @@ export default {
   filter: brightness(60%);
 }
 
-@media only screen and (min-width: 1000px) {
-  #image-wrap {
-    height: 450px;
-  }
-}
 
 .ql-syntax {
   white-space: pre-wrap;
@@ -260,5 +245,27 @@ export default {
 #post-date {
   font-size: 10px;
   font-weight: 500;
+}
+
+@media only screen and (min-width: 1000px) {
+  #image-wrap {
+    height: 450px;
+  }
+}
+
+@media only screen and (max-width: 1000px) {
+  #header-wrap {
+    width: 80%;
+  }
+
+  #article-wrap {
+    width: 80%;
+  }
+}
+
+@media only screen and (min-width: 1500px) {
+  #article {
+    font-size: .9em;
+  }
 }
 </style>

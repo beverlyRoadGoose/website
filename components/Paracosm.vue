@@ -157,7 +157,7 @@ export default {
   width: 100%;
   padding-top: 10px;
   padding-bottom: 10px;
-  border-bottom: 1px dotted #e6e6e6;
+  border-bottom: 0;
   font-size: 13px;
   cursor: pointer;
   transition: .5s;
