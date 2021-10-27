@@ -11,8 +11,14 @@
     <div id="tracks">
       <a id="title-wrap" :href="this.paracosm.spotify_url" target="_blank" title="Play on Spotify"><img id="spotify-logo" src="@/assets/img/Spotify.png"/><h2 id="title">{{ this.paracosm.title }}</h2><br /></a>
       <a :href="track.track.external_urls.spotify" target="_blank" class="track" v-for="(track, index) in tracks" :key="track.track.id" title="Play on Spotify">
-        <span class="index">{{ index + 1 }}.</span> <span class="track-name" :style="screenStyle">{{ track.track.name }}</span><br />
-        <span class="artist">{{ artists(track.track.artists) }}</span>
+        <div>
+          <div>
+            <span class="index">{{ index + 1 }}.</span> <span class="track-name" :style="screenStyle">{{ track.track.name }}</span><br />
+          </div>
+          <div>
+            <span class="artist">{{ artists(track.track.artists) }}</span>
+          </div>
+        </div>
       </a>
     </div>
   </div>
@@ -172,14 +178,19 @@ export default {
   text-decoration: underline;
 }
 
+.track-name {
+  margin-left: 25px;
+}
+
 .index {
   color: #777;
+  position: absolute;
 }
 
 .artist {
   color: #777;
   font-size: .8em;
-  margin-left: 15px;
+  margin-left: 25px;
 }
 
 @media only screen and (max-width: 1000px) {
