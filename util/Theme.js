@@ -8,7 +8,7 @@ let Theme = Object.freeze({
 
   dark: {
     name: 'dark',
-    background: '#141821',
+    background: '#0a0c11',
     accent: '#fefefe',
     radioBorder: '#fefefe'
   }

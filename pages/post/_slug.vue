@@ -29,7 +29,7 @@ import CookieManager from '@/util/CookieManager';
 import { Theme } from '@/util/Theme';
 import { Events } from '@/util/Events';
 import highlight from 'highlight.js';
-import 'highlight.js/styles/an-old-hope.css'; //https://highlightjs.org/static/demo/
+import 'highlight.js/styles/atom-one-dark.css'; //https://highlightjs.org/static/demo/
 import dayjs from 'dayjs';
 
 export default {
@@ -154,8 +154,9 @@ export default {
       for (i; i < code.length; i++) {
         code[i].innerHTML = '<code>' + code[i].innerHTML + '</code>';
         code[i].style.width = '100%';
-        code[i].style.overflowX = 'scroll';
         code[i].style.borderRadius = '3px';
+        code[i].style.marginTop = '15px';
+        code[i].style.marginBottom = '15px';
 
         let codeBlock = code[i].getElementsByTagName('code')[0];
         highlight.highlightBlock(codeBlock);
@@ -203,7 +204,7 @@ export default {
 
 #article {
   text-align: left;
-  font-size: .8em;
+  font-size: .9em;
   font-weight: 500;
   line-height: 20px;
 }
@@ -265,7 +266,7 @@ export default {
 
 @media only screen and (min-width: 1500px) {
   #article {
-    font-size: .9em;
+    font-size: 1em;
   }
 }
 </style>
