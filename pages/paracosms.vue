@@ -92,7 +92,7 @@ export default {
         clientId: "9587f6e9528a467790509c5d9241fad2",
         token: null,
         scopes: "",
-        redirectUri: "https://heytobi.dev/paracosms"
+        redirectUri: "https://heytobi.dev/paracosms" // TODO implement dynamic host
       },
       paracosms: [],
       totalParacosms: 0,
