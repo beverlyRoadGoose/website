@@ -54,6 +54,7 @@ export default {
   display: inline-block;
   text-align: left;
   width: 100%;
+  font-size: 1.5em;
 }
 
 .image {
