@@ -150,6 +150,7 @@ export default {
   -moz-transition: .5s;
   -webkit-transition: .5s;
   -o-transition: .5s;
+  margin-bottom: 50px;
 }
 
 #load-more-btn:hover {
