@@ -10,7 +10,7 @@
           <a href="https://www.human.com/" target="_blank" class="title" @click="recordHumanClickEvent">human.com</a>
           <div class="description">
             A website with short clips - 10 seconds max - that random people record of themselves, with the aim of making
-            you laugh in that time. Lot's of funny one liners.
+            you laugh in that time. Lots of funny one liners.
           </div>
         </li>
       </ul>
