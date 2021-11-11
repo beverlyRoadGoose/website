@@ -14,7 +14,6 @@
 
 <script>
 import HeaderBar from '@/components/HeaderBar';
-import ArticlePreview from '@/components/ArticlePreview';
 import Paracosm from '@/components/Paracosm';
 import Me from 'assets/img/me.jpg';
 import CookieManager from '@/util/CookieManager';
@@ -187,12 +186,6 @@ export default {
   -moz-transition: .5s;
   -webkit-transition: .5s;
   -o-transition: .5s;
-}
-
-@media only screen and (max-width: 1000px) {
-  #content {
-    width: 80%;
-  }
 }
 
 #load-more-btn {

@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://heytobi.dev/</loc>
+    <loc>https://heytobi.dev</loc>
   </url>
   <url>
-    <loc>https://heytobi.dev/posts/</loc>
+    <loc>https://heytobi.dev/posts</loc>
   </url>
   <url>
-    <loc>https://heytobi.dev/paracosms/</loc>
+    <loc>https://heytobi.dev/paracosms</loc>
+  </url>
+  <url>
+    <loc>https://heytobi.dev/favorites</loc>
   </url>
   <url>
     <loc>https://www.heytobi.dev/post/jenkins-monitor-vue-kotlin</loc>
-  </url>
-  <url>
-    <loc>https://www.heytobi.dev/post/microservices-go-beginner-walkthrough</loc>
   </url>
 </urlset>

@@ -12,6 +12,10 @@
       <NuxtLink to="/paracosms" class="nav-item" :style="navItemStyle" title="Paracosms">Paracosms</NuxtLink>
       <div class="underline" :style="navUnderlineStyle" :class="this.underline('paracosms')"></div>
     </div>
+    <div class="nav-item-wrapper">
+      <NuxtLink to="/favorites" class="nav-item" :style="navItemStyle" title="Favorites">Favorites</NuxtLink>
+      <div class="underline" :style="navUnderlineStyle" :class="this.underline('favorites')"></div>
+    </div>
   </div>
 </template>
 
