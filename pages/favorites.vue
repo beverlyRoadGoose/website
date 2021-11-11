@@ -7,7 +7,7 @@
 
       <ul id="list" :style="listStyle">
         <li>
-          <a href="https://www.human.com/" target="_blank" class="title">human.com</a>
+          <a href="https://www.human.com/" target="_blank" class="title" @click="recordHumanClickEvent">human.com</a>
           <div class="description">
             A website with short clips - 10 seconds max - that random people record of themselves, with the aim of making
             you laugh in that time. Lot's of funny one liners.
