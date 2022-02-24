@@ -5,8 +5,11 @@
 <script>
 export default {
   name: 'fuse',
-  meta: [
-    { name: 'go-import', content: "golang.org/x/tools git http://github.com/beverlyRoadGoose/fuse" }
-  ]
+  head: {
+    title: 'Tobi Adeyinka',
+    meta: [
+      { name: 'go-import', content: "golang.org/x/tools git http://github.com/beverlyRoadGoose/fuse" }
+    ]
+  },
 }
 </script>
