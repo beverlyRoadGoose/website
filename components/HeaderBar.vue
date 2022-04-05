@@ -21,7 +21,7 @@ export default {
   width: 100%;
   height: 55px;
   padding-top: 15px;
-  padding-bottom: 20px;
+  padding-bottom: 40px;
   box-sizing: border-box;
   margin: auto;
   float: left;

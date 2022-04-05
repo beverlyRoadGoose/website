@@ -2,6 +2,9 @@
   <div id="screen" :style="screenStyle">
     <div id="content">
       <header-bar active="home" />
+      <div id="hello" :style="helloStyle">
+        Hello &#128075;&#127998; I'm <b>Tobi</b> - Human, Melomaniac, Software Engineer.
+      </div>
       <transition name="fade">
         <img
           :src="meImg.src"
@@ -12,11 +15,10 @@
           title="Tobi Adeyinka"
         />
       </transition>
-      <span id="hello" :style="helloStyle">
-        Hello &#128075;&#127998; I'm <b>Tobi</b>, a Software Engineer based in Berlin. Currently, I'm building stuff at
-        <a href="https://www.hellofreshgroup.com/en/" target="_blank" @click="recordHelloFreshClickEvent"><b>HelloFresh</b></a>.
-        Outside of programming, I enjoy discovering <a href="https://www.youtube.com/watch?v=TeaDE1magRk" target="_blank" @click="recordMusicClickEvent"><b>good music</b></a>.
-        I share my favorites as curated playlists I like to call <NuxtLink to="/paracosms"><b>Paracosms</b></NuxtLink>.<sup><a href="https://en.wikipedia.org/wiki/Paracosm" target="_blank" style="text-decoration:none">?</a></sup>
+      <span id="about" :style="aboutStyle">
+        I'm currently based out of Berlin, building stuff building stuff at <a href="https://www.hellofreshgroup.com/en/" target="_blank" @click="recordHelloFreshClickEvent" :style="aboutStyle"><b>HelloFresh</b></a>.
+        Outside of programming, I enjoy discovering <a href="https://www.youtube.com/watch?v=TeaDE1magRk" target="_blank" @click="recordMusicClickEvent" :style="aboutStyle"><b>good music</b></a>.
+        I share my favorites as curated playlists I like to call <NuxtLink to="/paracosms" :style="aboutStyle"><b>Paracosms</b></NuxtLink>.<sup><a href="https://en.wikipedia.org/wiki/Paracosm" target="_blank" style="text-decoration:none">?</a></sup>
       </span>
 
       <div id="find-me">
@@ -84,7 +86,7 @@
         </a>
       </div>
 
-      <div id="quote" :style="helloStyle">
+      <div id="quote" :style="aboutStyle">
         Let everything happen to you. Beauty and Terror. Just keep going. No feeling is final.
       </div>
     </div>
@@ -136,6 +138,10 @@ export default {
       },
 
       helloStyle: {
+        color: null
+      },
+
+      aboutStyle: {
         color: null
       },
 
@@ -232,6 +238,7 @@ export default {
       document.body.style.background = theme.background;
       this.screenStyle.background = theme.background;
       this.helloStyle.color = theme.accent;
+      this.aboutStyle.color = theme.accent;
       this.findMeStyle.fill = theme.accent;
     }
   }
@@ -241,6 +248,16 @@ export default {
 <style lang="less" scoped>
 #screen {
   min-height: 100vh;
+  transition: .5s;
+  -moz-transition: .5s;
+  -webkit-transition: .5s;
+  -o-transition: .5s;
+}
+
+#hello {
+  padding-top: 70px;
+  margin-bottom: 20px;
+  font-size: 25px;
   transition: .5s;
   -moz-transition: .5s;
   -webkit-transition: .5s;
@@ -270,13 +287,21 @@ export default {
   opacity: 0;
 }
 
-#hello {
+#about {
   display: block;
   width: 100%;
   text-align: left;
   margin-bottom: 20px;
   font-size: .8em;
   font-weight: 500;
+  transition: .5s;
+  -moz-transition: .5s;
+  -webkit-transition: .5s;
+  -o-transition: .5s;
+}
+
+#about a {
+
   transition: .5s;
   -moz-transition: .5s;
   -webkit-transition: .5s;
@@ -331,7 +356,7 @@ export default {
     width: 30%;
   }
 
-  #hello {
+  #about {
     font-size: .9em;
   }
 
