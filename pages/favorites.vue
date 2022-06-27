@@ -2,7 +2,7 @@
   <div id="favorites">
     <div id="content">
       <header-bar active="favorites" />
-      <div id="intro" :style="introStyle">On this page is a list of things I've randomly bumped into on the Interwebs, which
+      <div id="intro" :style="introStyle">On this page is a list of things I've bumped into on the Interwebs, which
         I think are cool or funny, and worth sharing.</div>
 
       <ul id="list" :style="listStyle">

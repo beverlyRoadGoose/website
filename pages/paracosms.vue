@@ -2,6 +2,10 @@
   <div id="paracosms" :style="screenStyle">
     <div id="content">
       <header-bar active="paracosms" />
+
+      <div id="intro" :style="introStyle">On this page is a collection of my favorite songs, grouped together as small
+        (in most cases) playlists that I like to call Paracosms.<sup><a href="https://en.wikipedia.org/wiki/Paracosm" target="_blank" style="text-decoration:none">?</a></sup></div>
+
       <div class="paracosm" v-for="paracosm in sortedParacosms" :key="paracosm.spotifyPlaylistId">
         <paracosm :paracosm="paracosm"/>
       </div>
@@ -87,6 +91,9 @@ export default {
       screenStyle: {
         background: null
       },
+      introStyle: {
+        color: null
+      },
       spotify: {
         clientId: "9587f6e9528a467790509c5d9241fad2",
         token: null,
@@ -157,6 +164,7 @@ export default {
     applyTheme: function(theme) {
       document.body.style.background = theme.background;
       this.screenStyle.background = theme.background;
+      this.introStyle.color = theme.accent;
     }
   },
 
@@ -173,6 +181,19 @@ export default {
 <style scoped>
 #paracosms {
   min-height: 100vh;
+  transition: .5s;
+  -moz-transition: .5s;
+  -webkit-transition: .5s;
+  -o-transition: .5s;
+}
+
+#intro {
+  padding-top: 70px;
+  margin-bottom: 30px;
+  width: 100%;
+  text-align: left;
+  font-size: .8em;
+  font-weight: 500;
   transition: .5s;
   -moz-transition: .5s;
   -webkit-transition: .5s;
@@ -216,6 +237,10 @@ export default {
 @media only screen and (min-width: 1500px) {
   #content {
     width: 30%;
+  }
+
+  #intro {
+    font-size: .9em;
   }
 }
 </style>
