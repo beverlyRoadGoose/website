@@ -12,7 +12,7 @@
           v-show="meImg.loaded"
           id="me"
           alt="Picture of me"
-          title="Tobi Adeyinka"
+          title="Pic Saint-Michel, Vercors Massif, France"
         />
       </transition>
       <span id="about" :style="aboutStyle">
@@ -110,8 +110,7 @@ export default {
       { charset: 'utf-8' },
       {
         name: 'description',
-        content: "Hello. I'm Tobi, a Software Engineer currently based in Berlin. Currently, I'm building stuff at HelloFresh. " +
-            "Outside of programming, I enjoy discovering good music."
+        content: "Hello. I'm Tobi, a Software Engineer currently based in Berlin."
       },
       { property: 'og:title', content: 'Tobi Adeyinka' },
       {
