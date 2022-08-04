@@ -15,7 +15,7 @@
         <li>
           <a href="https://www.youtube.com/watch?v=vdb4XGVTHkE" target="_blank" class="title" @click="recordHumanClickEvent">HUMAN</a>
           <div class="description">
-            A documentary series, in 3 volumes by Yann Arthus-Bertrand, exploring the Human condition in the form of interviews
+            A 3 volume documentary series by Yann Arthus-Bertrand, exploring the Human condition in the form of interviews
             with people of widely varying cultures and status.
             All volumes are available on <a href="https://www.youtube.com/watch?v=vdb4XGVTHkE" target="_blank">YouTube</a>, highly recommended.
           </div>
