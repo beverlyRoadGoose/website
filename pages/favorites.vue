@@ -2,15 +2,22 @@
   <div id="favorites">
     <div id="content">
       <header-bar active="favorites" />
-      <div id="intro" :style="introStyle">On this page is a list of things I've bumped into on the Interwebs, which
-        I think are cool or funny, and worth sharing.</div>
+      <div id="intro" :style="introStyle">On this page is a list of stuff I like / can recommend.</div>
 
       <ul id="list" :style="listStyle">
         <li>
-          <a href="https://www.human.com/" target="_blank" class="title" @click="recordHumanClickEvent">human.com</a>
+          <a href="https://www.npr.org/podcasts/510307/invisibilia" target="_blank" class="title" @click="recordInvisibiliaClickEvent">Invisibilia</a>
           <div class="description">
-            A website with short clips - 10 seconds max - that random people record of themselves, with the aim of making
-            you laugh in that time. Lots of funny one liners.
+            A Podcast that "explores the intangible forces that shape human behavior—things like ideas, beliefs, assumptions and emotions".
+          </div>
+        </li>
+
+        <li>
+          <a href="https://www.youtube.com/watch?v=vdb4XGVTHkE" target="_blank" class="title" @click="recordHumanClickEvent">HUMAN</a>
+          <div class="description">
+            A documentary series, in 3 volumes by Yann Arthus-Bertrand, exploring the Human condition in the form of interviews
+            with people of widely varying cultures and status.
+            All volumes are available on <a href="https://www.youtube.com/watch?v=vdb4XGVTHkE" target="_blank">YouTube</a>, highly recommended.
           </div>
         </li>
       </ul>
@@ -96,10 +103,18 @@ export default {
       });
     },
 
-    recordHumanClickEvent() {
-      this.$gtag.event('clickedHumanCom', {
+    recordInvisibiliaClickEvent() {
+      this.$gtag.event('clickedInvisibilia', {
         event_category: 'favoriteLinkClick',
-        event_label: 'humanComClick',
+        event_label: 'invisibiliaClick',
+        value: 1
+      });
+    },
+
+    recordHumanClickEvent() {
+      this.$gtag.event('clickedHuman', {
+        event_category: 'favoriteLinkClick',
+        event_label: 'humanClick',
         value: 1
       });
     },
