@@ -17,7 +17,7 @@
           <div class="description">
             A 3 volume documentary series by Yann Arthus-Bertrand, exploring the Human condition in the form of interviews
             with people of widely varying cultures and status.
-            All volumes are available on <a href="https://www.youtube.com/watch?v=vdb4XGVTHkE" target="_blank">YouTube</a>, highly recommended.
+            All volumes are available on <a href="https://www.youtube.com/watch?v=vdb4XGVTHkE" target="_blank">YouTube</a>, <b>highly recommended</b>.
           </div>
         </li>
       </ul>
