@@ -11,7 +11,6 @@
           @load="onMeImageLoad"
           v-show="meImg.loaded"
           id="me"
-          alt="Picture of me"
           title="Pic Saint-Michel, Vercors Massif, France"
         />
       </transition>
