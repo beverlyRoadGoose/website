@@ -293,7 +293,7 @@ export default {
   width: 100%;
   text-align: left;
   margin-bottom: 20px;
-  font-size: .8em;
+  font-size: .9em;
   font-weight: 500;
   transition: .5s;
   -moz-transition: .5s;
@@ -302,7 +302,6 @@ export default {
 }
 
 #about a {
-
   transition: .5s;
   -moz-transition: .5s;
   -webkit-transition: .5s;
@@ -358,11 +357,11 @@ export default {
   }
 
   #about {
-    font-size: .9em;
+    font-size: 1em;
   }
 
   #quote {
-    font-size: .9em;
+    font-size: 1em;
   }
 }
 

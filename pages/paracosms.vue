@@ -192,7 +192,7 @@ export default {
   margin-bottom: 30px;
   width: 100%;
   text-align: left;
-  font-size: .8em;
+  font-size: .9em;
   font-weight: 500;
   transition: .5s;
   -moz-transition: .5s;

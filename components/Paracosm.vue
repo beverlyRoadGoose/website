@@ -164,7 +164,7 @@ export default {
   padding-top: 10px;
   padding-bottom: 10px;
   border-bottom: 0;
-  font-size: .8em;
+  font-size: .9em;
   cursor: pointer;
   transition: .5s;
   -moz-transition: .5s;
@@ -189,7 +189,7 @@ export default {
 
 .artist {
   color: #777;
-  font-size: .8em;
+  font-size: .9em;
   margin-left: 25px;
 }
 
@@ -202,11 +202,11 @@ export default {
 
 @media only screen and (min-width: 1500px) {
   .track {
-    font-size: .9em;
+    font-size: 1em;
   }
 
   .artist {
-    font-size: .9em;
+    font-size: 1em;
   }
 }
 </style>

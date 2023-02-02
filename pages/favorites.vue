@@ -158,7 +158,7 @@ export default {
   margin-bottom: 30px;
   width: 100%;
   text-align: left;
-  font-size: .8em;
+  font-size: .9em;
   font-weight: 500;
   transition: .5s;
   -moz-transition: .5s;
@@ -169,7 +169,7 @@ export default {
 #list {
   padding-left: 20px;
   margin: auto;
-  font-size: .8em;
+  font-size: .9em;
   font-weight: 500;
   transition: .5s;
   -moz-transition: .5s;
@@ -197,11 +197,11 @@ export default {
   }
 
   #intro {
-    font-size: .9em;
+    font-size: 1em;
   }
 
   #list {
-    font-size: .9em;
+    font-size: 1em;
   }
 }
 </style>

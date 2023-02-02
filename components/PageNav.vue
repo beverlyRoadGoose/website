@@ -86,7 +86,7 @@ export default {
 
 .nav-item {
   text-decoration: none;
-  font-size: .8em;
+  font-size: .9em;
   font-weight: 500;
 }
 
@@ -112,13 +112,13 @@ export default {
 
 @media only screen and (max-width: 1000px) {
   .nav-item {
-    font-size: .8em;
+    font-size: .9em;
   }
 }
 
 @media only screen and (min-width: 1500px) {
   .nav-item {
-    font-size: .9em;
+    font-size: 1em;
   }
 }
 </style>
