@@ -240,7 +240,7 @@ export default {
   }
 
   #intro {
-    font-size: .9em;
+    font-size: 1em;
   }
 }
 </style>
