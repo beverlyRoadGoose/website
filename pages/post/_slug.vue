@@ -157,10 +157,9 @@ export default {
         code[i].style.borderRadius = '3px';
         code[i].style.marginTop = '15px';
         code[i].style.marginBottom = '15px';
-
-        let codeBlock = code[i].getElementsByTagName('code')[0];
-        highlight.highlightBlock(codeBlock);
       }
+
+      highlight.highlightAll();
     }
   },
 
