@@ -13,7 +13,7 @@
     "comfortable-javascript": "^1.2.2",
     "core-js": "^3.6.5",
     "dayjs": "^1.9.7",
-    "highlight.js": "^10.4.1",
+    "highlight.js": "^11.7.0",
     "less": "^3.12.2",
     "less-loader": "^7.1.0",
     "lodash": "^4.17.20",

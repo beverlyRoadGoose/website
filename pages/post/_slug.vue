@@ -29,7 +29,7 @@ import CookieManager from '@/util/CookieManager';
 import { Theme } from '@/util/Theme';
 import { Events } from '@/util/Events';
 import highlight from 'highlight.js';
-import 'highlight.js/styles/atom-one-dark.css'; //https://highlightjs.org/static/demo/
+import 'highlight.js/styles/base16/bright.css'; //https://highlightjs.org/static/demo/
 import dayjs from 'dayjs';
 
 export default {
