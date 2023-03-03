@@ -1,43 +1,26 @@
 <template>
   <div id="mixes">
     <div id="content">
-      <header-bar active="favorites" />
-      <div id="intro" :style="introStyle">On this page is a list of stuff I like / can recommend.</div>
-
-      <ul id="list" :style="listStyle">
-        <li>
-          <a href="https://www.npr.org/podcasts/510307/invisibilia" target="_blank" class="title" @click="recordInvisibiliaClickEvent">Invisibilia</a>
-          <div class="description">
-            A Podcast that "explores the intangible forces that shape human behavior—things like ideas, beliefs, assumptions and emotions".
-          </div>
-        </li>
-
-        <li>
-          <a href="https://www.youtube.com/watch?v=vdb4XGVTHkE" target="_blank" class="title" @click="recordHumanClickEvent">HUMAN</a>
-          <div class="description">
-            A 3 volume documentary series by Yann Arthus-Bertrand, exploring the Human condition in the form of interviews
-            with people of widely varying cultures and status.
-            All volumes are available on <a href="https://www.youtube.com/watch?v=vdb4XGVTHkE" target="_blank">YouTube</a>, <b>highly recommended</b>.
-          </div>
-        </li>
-      </ul>
+      <header-bar active="mixes" />
+<!--  <div id="intro" :style="introStyle"></div>-->
+      <iframe width="100%" height="120" src="https://www.mixcloud.com/widget/iframe/?hide_cover=1&light=1&feed=%2Fbeverlyroadgoose%2Fsan-junipero-mixes-001%2F" frameborder="0" ></iframe>
     </div>
   </div>
 </template>
 
 <script>
-import HeaderBar from '@/components/HeaderBar';
+import HeaderBar from '@/components/HeaderBar.vue';
 import Me from 'assets/img/me.jpg';
 import CookieManager from '@/util/CookieManager';
 import {Theme} from '@/util/Theme';
 import {Events} from '@/util/Events';
 
 export default {
-  name: 'favorites',
+  name: 'mixes',
   transition: {},
   components: { HeaderBar },
   head: {
-    title: 'Tobi Adeyinka | Favorites',
+    title: 'Tobi Adeyinka | Mixes',
     htmlAttrs: {
       lang: 'en'
     },
@@ -46,16 +29,12 @@ export default {
       {name: 'viewport', content: 'width=device-width, initial-scale=1'},
       {
         name: 'description',
-        content: "Hello. I'm Tobi, a Software Engineer currently based in Berlin. " +
-            "On this page, you'll find a list of things I randomly bumped into on the interwebs which " +
-            "I think are cool and worth sharing."
+        content: "Hello. I'm Tobi, a Software Engineer currently based in Berlin. On this page, you'll find my mixes."
       },
       {property: 'og:title', content: 'Tobi Adeyinka | Favorites'},
       {
         property: 'og:description',
-        content: "Hello. I'm Tobi, a Software Engineer currently based in Berlin. " +
-            "On this page, you'll find a list of things I randomly bumped into on the interwebs which " +
-            "I think are cool and worth sharing."
+        content: "Hello. I'm Tobi, a Software Engineer currently based in Berlin. On this page, you'll find my mixes."
       },
       {property: 'og:site_name', content: 'Tobi Adeyinka | Favorites'},
       {property: 'og:type', content: 'website'},
@@ -130,6 +109,10 @@ export default {
 </script>
 
 <style scoped>
+iframe {
+  margin-bottom: 20px;
+}
+
 #mixes {
   min-height: 100vh;
   transition: .5s;
@@ -166,25 +149,6 @@ export default {
   -o-transition: .5s;
 }
 
-#list {
-  padding-left: 20px;
-  margin: auto;
-  font-size: .9em;
-  font-weight: 500;
-  transition: .5s;
-  -moz-transition: .5s;
-  -webkit-transition: .5s;
-  -o-transition: .5s;
-}
-
-#list li {
-  margin-bottom: 20px;
-}
-
-.description {
-  margin-top: 5px;
-}
-
 @media only screen and (max-width: 1000px) {
   #content {
     width: 80%;
@@ -197,10 +161,6 @@ export default {
   }
 
   #intro {
-    font-size: 1em;
-  }
-
-  #list {
     font-size: 1em;
   }
 }
