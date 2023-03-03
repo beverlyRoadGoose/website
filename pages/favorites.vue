@@ -27,7 +27,7 @@
 
 <script>
 import HeaderBar from '@/components/HeaderBar';
-import Me from 'assets/img/me.jpg';
+import Me from 'assets/img/me_mountain.jpg';
 import CookieManager from '@/util/CookieManager';
 import {Theme} from '@/util/Theme';
 import {Events} from '@/util/Events';
