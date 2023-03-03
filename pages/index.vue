@@ -20,7 +20,7 @@
         and <a href="https://www.raisin.com/" target="_blank" @click="recordEmployerClickEvent" :style="aboutStyle"><b>Raisin</b></a>.
         <br /><br />
         Outside of programming, I enjoy discovering <a href="https://www.youtube.com/watch?v=TeaDE1magRk" target="_blank" @click="recordMusicClickEvent" :style="aboutStyle"><b>good music</b></a>.
-        In my free time, I enjoy creating <NuxtLink to="/mixes" :style="aboutStyle"><b>Mixes</b></NuxtLink>, you can find
+        In my free time, I create <NuxtLink to="/mixes" :style="aboutStyle"><b>Mixes</b></NuxtLink>, you can find
         them / follow me on <a href="https://www.mixcloud.com/beverlyroadgoose/" target="_blank" @click="recordMixcloudClickEvent" :style="aboutStyle"><b>Mixcloud</b></a>
       </span>
 
