@@ -20,7 +20,8 @@
         and <a href="https://www.raisin.com/" target="_blank" @click="recordEmployerClickEvent" :style="aboutStyle"><b>Raisin</b></a>.
         <br /><br />
         Outside of programming, I enjoy discovering <a href="https://www.youtube.com/watch?v=TeaDE1magRk" target="_blank" @click="recordMusicClickEvent" :style="aboutStyle"><b>good music</b></a>.
-        I share my favorites as curated playlists I like to call <NuxtLink to="/paracosms" :style="aboutStyle"><b>Paracosms</b></NuxtLink>.<sup><a href="https://en.wikipedia.org/wiki/Paracosm" target="_blank" :style="aboutStyle" style="text-decoration:none">?</a></sup>
+        In my free time, I enjoy creating <NuxtLink to="/mixes" :style="aboutStyle"><b>Mixes</b></NuxtLink>, you can find
+        them / follow me on <a href="https://www.mixcloud.com/beverlyroadgoose/" target="_blank" @click="recordMixcloudClickEvent" :style="aboutStyle"><b>Mixcloud</b></a>
       </span>
 
       <div id="find-me">
@@ -191,6 +192,14 @@ export default {
       this.$gtag.event('clickedEmployer', {
         event_category: 'externalLinkClick',
         event_label: 'employerClick',
+        value: 1
+      });
+    },
+
+    recordMixcloudClickEvent() {
+      this.$gtag.event('clickedMixcloud', {
+        event_category: 'externalLinkClick',
+        event_label: 'mixcloudClick',
         value: 1
       });
     },
