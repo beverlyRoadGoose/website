@@ -31,15 +31,15 @@ export default {
         name: 'description',
         content: "Hello. I'm Tobi, a Software Engineer currently based in Berlin. On this page, you'll find my mixes."
       },
-      {property: 'og:title', content: 'Tobi Adeyinka | Favorites'},
+      {property: 'og:title', content: 'Tobi Adeyinka | Mixes'},
       {
         property: 'og:description',
         content: "Hello. I'm Tobi, a Software Engineer currently based in Berlin. On this page, you'll find my mixes."
       },
-      {property: 'og:site_name', content: 'Tobi Adeyinka | Favorites'},
+      {property: 'og:site_name', content: 'Tobi Adeyinka | Mixes'},
       {property: 'og:type', content: 'website'},
       {name: 'robots', content: 'index,follow'},
-      {property: 'og:url', content: 'https://heytobi.dev/favorites'},
+      {property: 'og:url', content: 'https://heytobi.dev/mixes'},
       {property: 'og:image', content: `https://heytobi.dev${Me}`}
     ]
   },
