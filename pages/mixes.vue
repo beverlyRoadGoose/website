@@ -2,7 +2,8 @@
   <div id="mixes">
     <div id="content">
       <header-bar active="mixes" />
-      <div id="intro" :style="introStyle"></div>
+<!--  <div id="intro" :style="introStyle"></div>-->
+      <iframe width="100%" height="120" src="https://www.mixcloud.com/widget/iframe/?hide_cover=1&light=1&feed=%2Fbeverlyroadgoose%2Fsan-junipero-mixes-001%2F" frameborder="0" ></iframe>
     </div>
   </div>
 </template>
@@ -108,6 +109,10 @@ export default {
 </script>
 
 <style scoped>
+iframe {
+  margin-bottom: 20px;
+}
+
 #mixes {
   min-height: 100vh;
   transition: .5s;
