@@ -3,7 +3,8 @@
     <div id="content">
       <header-bar active="mixes" />
 <!--  <div id="intro" :style="introStyle"></div>-->
-      <iframe width="100%" height="120" src="https://www.mixcloud.com/widget/iframe/?hide_cover=1&light=1&feed=%2Fbeverlyroadgoose%2Fsan-junipero-mixes-001%2F" frameborder="0" ></iframe>
+      <iframe width="100%" height="120" src="https://www.mixcloud.com/widget/iframe/?hide_cover=1&light=1&feed=%2Fbeverlyroadgoose%2Fsan-junipero-mixes-002%2F"></iframe>
+      <iframe width="100%" height="120" src="https://www.mixcloud.com/widget/iframe/?hide_cover=1&light=1&feed=%2Fbeverlyroadgoose%2Fsan-junipero-mixes-001%2F"></iframe>
     </div>
   </div>
 </template>
@@ -110,7 +111,8 @@ export default {
 
 <style scoped>
 iframe {
-  margin-bottom: 20px;
+  margin-bottom: 30px;
+  border: 0;
 }
 
 #mixes {
