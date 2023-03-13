@@ -15,8 +15,8 @@
         />
       </transition>
       <span id="about" :style="aboutStyle">
-        I'm currently based in Berlin, building stuff at <a href="https://www.lifeatspotify.com/" target="_blank" @click="recordEmployerClickEvent" :style="aboutStyle"><b>Spotify</b></a>.
-        Previously, I worked at <a href="https://www.hellofreshgroup.com/en/" target="_blank" @click="recordEmployerClickEvent" :style="aboutStyle"><b>HelloFresh</b></a>
+        I'm currently based in Berlin, building stuff at <a href="https://de.scalable.capital/en" target="_blank" @click="recordEmployerClickEvent" :style="aboutStyle"><b>Scalable Capital</b></a>.
+        Previously, I worked at <a href="https://www.lifeatspotify.com/" target="_blank" @click="recordEmployerClickEvent" :style="aboutStyle"><b>Spotify</b></a>, <a href="https://www.hellofreshgroup.com/en/" target="_blank" @click="recordEmployerClickEvent" :style="aboutStyle"><b>HelloFresh</b></a>
         and <a href="https://www.raisin.com/" target="_blank" @click="recordEmployerClickEvent" :style="aboutStyle"><b>Raisin</b></a>.
         <br /><br />
         Outside of programming, I enjoy discovering <a href="https://www.youtube.com/watch?v=TeaDE1magRk" target="_blank" @click="recordMusicClickEvent" :style="aboutStyle"><b>good music</b></a>.
