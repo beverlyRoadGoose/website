@@ -3,7 +3,6 @@
     <div id="content">
       <header-bar active="mixes" />
 <!--  <div id="intro" :style="introStyle"></div>-->
-      <iframe width="100%" height="120" src="https://www.mixcloud.com/widget/iframe/?hide_cover=1&light=1&feed=%2Fbeverlyroadgoose%2Fsan-junipero-mixes-004%2F"></iframe>
       <iframe width="100%" height="120" src="https://www.mixcloud.com/widget/iframe/?hide_cover=1&light=1&feed=%2Fbeverlyroadgoose%2Fsan-junipero-mixes-003%2F"></iframe>
       <iframe width="100%" height="120" src="https://www.mixcloud.com/widget/iframe/?hide_cover=1&light=1&feed=%2Fbeverlyroadgoose%2Fsan-junipero-mixes-002%2F"></iframe>
       <iframe width="100%" height="120" src="https://www.mixcloud.com/widget/iframe/?hide_cover=1&light=1&feed=%2Fbeverlyroadgoose%2Fsan-junipero-mixes-001%2F"></iframe>    
