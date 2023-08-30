@@ -8,7 +8,7 @@ export default {
   head: {
     title: 'Tobi Adeyinka',
     meta: [
-      { name: 'go-import', content: "heytobi.dev/fuse git http://github.com/beverlyRoadGoose/fuse" }
+      { name: 'go-import', content: "heytobi.dev/fuse git https://github.com/beverlyRoadGoose/fuse" }
     ]
   },
 }
