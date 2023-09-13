@@ -4,22 +4,25 @@
       <NuxtLink to="/" class="nav-item" :style="navItemStyle" title="Home">Home</NuxtLink>
       <div class="underline" :style="navUnderlineStyle" :class="this.underline('home')"></div>
     </div>
-    <div class="nav-item-wrapper">
+<!--<div class="nav-item-wrapper">
       <NuxtLink to="/posts" class="nav-item" :style="navItemStyle" title="Posts">Posts</NuxtLink>
       <div class="underline" :style="navUnderlineStyle" :class="this.underline('posts')"></div>
     </div>
+-->
     <div class="nav-item-wrapper">
       <NuxtLink to="/mixes" class="nav-item" :style="navItemStyle" title="Mixes">Mixes</NuxtLink>
       <div class="underline" :style="navUnderlineStyle" :class="this.underline('mixes')"></div>
     </div>
-<!--    <div class="nav-item-wrapper">
+<!--<div class="nav-item-wrapper">
       <NuxtLink to="/paracosms" class="nav-item" :style="navItemStyle" title="Paracosms">Paracosms</NuxtLink>
       <div class="underline" :style="navUnderlineStyle" :class="this.underline('paracosms')"></div>
-    </div>-->
-<!--    <div class="nav-item-wrapper">
+    </div>
+-->
+<!--<div class="nav-item-wrapper">
       <NuxtLink to="/favorites" class="nav-item" :style="navItemStyle" title="Favorites">Favorites</NuxtLink>
       <div class="underline" :style="navUnderlineStyle" :class="this.underline('favorites')"></div>
-    </div>-->
+    </div>
+-->
   </div>
 </template>
 

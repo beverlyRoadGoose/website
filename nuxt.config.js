@@ -1,4 +1,4 @@
-import { ComfortableApi } from './util/Comfortable';
+// import { ComfortableApi } from './util/Comfortable';
 
 export default {
   // Target (https://go.nuxtjs.dev/config-target)
@@ -24,7 +24,7 @@ export default {
 
   // Plugins to run before rendering page (https://go.nuxtjs.dev/config-plugins)
   plugins: [
-    '@/plugins/vue-gtag.js',
+    '@/plugins/vue-gtag.js'
   ],
 
   // Auto import components (https://go.nuxtjs.dev/config-components)
@@ -41,25 +41,25 @@ export default {
 
   // Build Configuration (https://go.nuxtjs.dev/config-build)
   build: {
-  },
-
-  generate: {
-    async routes() {
-      let routes = [];
-
-      const options = {
-        embedAssets: true,
-        limit: 100,
-        offset: 0
-      };
-
-      await ComfortableApi.getCollection('blogpost', options).then(result => {
-        result.data.forEach(post => {
-          routes.push('/post/' + post.fields.slug);
-        });
-      }).catch(err => {throw err;});
-
-      return routes;
-    }
   }
+
+  // generate: {
+  //   async routes() {
+  //     let routes = [];
+  //
+  //     const options = {
+  //       embedAssets: true,
+  //       limit: 100,
+  //       offset: 0
+  //     };
+  //
+  //     await ComfortableApi.getCollection('blogpost', options).then(result => {
+  //       result.data.forEach(post => {
+  //         routes.push('/post/' + post.fields.slug);
+  //       });
+  //     }).catch(err => {throw err;});
+  //
+  //     return routes;
+  //   }
+  // }
 }
