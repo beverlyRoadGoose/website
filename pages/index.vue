@@ -281,6 +281,7 @@ export default {
 
 #content {
   width: 35%;
+  max-width: 700px;
   margin: auto;
 }
 

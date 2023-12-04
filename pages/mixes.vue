@@ -126,6 +126,7 @@ iframe {
 
 #content {
   width: 35%;
+  max-width: 700px;
   margin: auto;
   transition: .5s;
   -moz-transition: .5s;
