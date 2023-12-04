@@ -169,7 +169,7 @@ export default {
   },
 
   computed: {
-    sortedParacosms: function(a) {
+    sortedParacosms: function() {
       return this.paracosms.sort(function(a, b) {
         return b.number - a.number;
       });
